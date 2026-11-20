@@ -19,6 +19,7 @@ Requires DeepSeek Harness 0.2.2-rc.3 or newer.
 Any new feature whose main job is choosing, naming, organizing, or setting defaults
 for Workspaces belongs in this aggregate.
 Add its package to `aggregate.yml`, run `pnpm run aggregate`, and keep the source plugin's row id stable.
+The source plugin may remain independently installable, but it must also be listed here.
 Features that are not workspace-specific stay in their own bundles.
 
 ## Install

@@ -1,0 +1,13 @@
+name: '@local/dsh-workspace-family'
+version: 0.1.0
+private: true
+description: One bundle card for the workspace picker, the workspace name in the session header, and per-workspace agent defaults.
+engines:
+  dsh: '>=0.2.2-rc.3'
+plugins:
+  - name: dsh-workspace-picker
+    spec: link:../dsh-workspace-picker
+  - name: dsh-session-workspace-label
+    spec: link:../dsh-session-workspace-label
+  - name: dsh-workspace-agent-preset
+    spec: link:../dsh-workspace-agent-preset

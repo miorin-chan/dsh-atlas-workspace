@@ -1,0 +1,57 @@
+{
+  "name": "@local/dsh-workspace-family",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "description": "One bundle card for the workspace picker, the workspace name in the session header, and per-workspace agent defaults.",
+  "type": "module",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "dsh-bundle",
+    "workspace",
+    "aggregate"
+  ],
+  "exports": {
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "aggregate.yml",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "README.zh.md",
+    "AGENTS.md",
+    "AGENTS.local.md",
+    "docs/README.md",
+    "docs/verification.md"
+  ],
+  "engines": {
+    "dsh": ">=0.2.2-rc.3"
+  },
+  "scripts": {
+    "aggregate": "node ../../tools/dsh-aggregate/cli.mjs generate .",
+    "check": "node ../../tools/dsh-aggregate/cli.mjs check .",
+    "prepack": "node ../../tools/dsh-aggregate/cli.mjs check ."
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "aggregate": {
+      "plugins": [
+        "dsh-workspace-picker",
+        "dsh-session-workspace-label",
+        "dsh-workspace-agent-preset"
+      ]
+    }
+  },
+  "dependencies": {
+    "dsh-workspace-picker": "link:../dsh-workspace-picker",
+    "dsh-session-workspace-label": "link:../dsh-session-workspace-label",
+    "dsh-workspace-agent-preset": "link:../dsh-workspace-agent-preset"
+  }
+}

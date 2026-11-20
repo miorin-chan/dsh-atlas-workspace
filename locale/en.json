@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Workspace family",
+    "description": "One card for the workspace picker, the workspace name in the session header, and per-workspace agent defaults. Each row keeps its own switch."
+  }
+}

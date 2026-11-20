@@ -1,0 +1,19 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      dsh-session-workspace-label:
+        specifier: link:../dsh-session-workspace-label
+        version: link:../dsh-session-workspace-label
+      dsh-workspace-agent-preset:
+        specifier: link:../dsh-workspace-agent-preset
+        version: link:../dsh-workspace-agent-preset
+      dsh-workspace-picker:
+        specifier: link:../dsh-workspace-picker
+        version: link:../dsh-workspace-picker

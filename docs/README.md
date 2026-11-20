@@ -94,5 +94,5 @@ DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
 
 ## 验证记录
 
-生成、一次性 profile、schema 和元数据解析的结果见 [verification.md](verification.md)。
-真实 **插件** 页尚未验证。
+生成、一次性 profile、真实 desktop profile 迁移、schema 和元数据解析的结果见 [verification.md](verification.md)。
+真实 **插件** 页已确认当前可用；逐行开关回归尚未记录。

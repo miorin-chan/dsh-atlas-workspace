@@ -3,7 +3,7 @@
 - 日期：2026-11-20
 - 包版本：`@local/dsh-workspace-family` 0.1.0
 - DSH：0.2.2-rc.5
-- 方式：生成/漂移校验 + 一次性 `DSH_HOME` profile；未改真实 profile。
+- 方式：生成/漂移校验 + 一次性 `DSH_HOME` + 真实 desktop profile 迁移。
 
 ## 生成与漂移
 
@@ -50,6 +50,37 @@ entries:
 
 `locale/en.json` 与 `locale/zh.json` 都有 `meta.title` 和 `meta.description`。
 
+## 真实 profile 迁移
+
+迁移前把真实 profile 的 `package.json`、`cordis.patch.yml`、`cordis.yml`、
+`pnpm-lock.yaml` 和 `pnpm-workspace.yaml` 备份到工作区 `scratch/dsh-workspace-family-migration-2026-11-20/`。
+
+然后通过 `plugin_manager` 依次移除三个独立 bundle：
+
+```text
+remove_bundle dsh-workspace-picker        -> changed: true, application: applied
+remove_bundle dsh-session-workspace-label -> changed: true, application: applied
+remove_bundle dsh-workspace-agent-preset  -> changed: true, application: applied
+```
+
+安装聚合包：
+
+```text
+install_bundle plugins/dsh-workspace-family
+-> @local/dsh-workspace-family 0.1.0, enabled: true, application: applied
+```
+
+迁移后的 profile `package.json` 只剩一个工作区依赖和一个工作区 bundle：
+
+```text
+dependencies: @local/dsh-workspace-family
+bundles:      @local/dsh-workspace-family
+```
+
+`list_bundles` 显示该 bundle `enabled: true`，`rows` 为三行，三个 `entryId` 都存在；
+`list_plugins` 显示三行都是 `fiberPhase: active`。
+用户在真实 **插件** 页确认聚合卡可用。
+
 ## 只读检查
 
 三个源插件的独立仓库 `git status --short` 均为空，聚合生成没有改动源插件。
@@ -69,7 +100,8 @@ package: @local/dsh-workspace-family@0.1.0
 tarball 包含 `aggregate.yml`、`cordis.patch.yml`、`package.json`、`locale/`、`icon.svg`、
 两份 README 和 `docs/`；不包含 `node_modules/`。
 
-## 未验证
+## 未覆盖
 
-没有在真实 **插件** 页看这张卡的渲染，也没有在真实 profile 执行迁移。
-安装前应先用一次性 profile 的页面确认，再按 [README](README.md) 的步骤移除独立 bundle。
+- 没有逐行开关、关闭整卡再恢复的完整回归记录；真实页面只确认当前可用。
+- 没有发布到 npm；`prepack` 仍依赖工作区的 `tools/dsh-aggregate`。
+- 回滚需要还原备份并重新安装三个独立 bundle；备份在 `scratch/`，确认稳定后可删除。

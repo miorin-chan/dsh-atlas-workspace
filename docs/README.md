@@ -13,6 +13,17 @@
 `dsh-session-sounds`、`dsh-close-shortcuts` 等只与会话或界面有关，不属于工作区范围；
 `dsh-sideby-note` 是公开的侧栏笔记插件，保持独立。
 
+## 新增工作区功能
+
+本聚合包是工作区功能的默认落点。新增“选择、命名、组织工作区，或设置工作区默认值”一类能力时：
+
+1. 在源插件仓库实现行为；
+2. 把插件包加入 `aggregate.yml`；
+3. 运行 `pnpm run aggregate` 与 `pnpm run check`；
+4. 保持源插件的行 id 不变，并更新卡片描述与文档。
+
+与工作区无关的功能仍应独立成包。
+
 ## 结构
 
 ```text

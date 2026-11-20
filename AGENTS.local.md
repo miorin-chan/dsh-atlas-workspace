@@ -5,14 +5,14 @@
 ## 定位
 
 - 这是工作区插件的组合层，不是行为插件。
-- 行仍然指向 `dsh-workspace-picker`、`dsh-session-workspace-label`、`dsh-workspace-agent-preset`，
-  不在这里复制它们的 Host 或 Client 代码。
+- 行仍然指向各源插件（当前是 `dsh-workspace-picker`、`dsh-session-workspace-label`、
+  `dsh-workspace-agent-preset`），不在这里复制它们的 Host 或 Client 代码。
 - 独立 bundle 与聚合包互斥；重复行 id 是 DSH 启动级错误。
 
 ## 新增工作区功能
 
 任何新的、主要面向工作区的功能都应加入本聚合包：更新 `aggregate.yml`，重新生成并校验，
-保持源插件的行 id 稳定；不要把它留在独立 bundle 里。
+保持源插件的行 id 稳定，并同步更新 locale 标题、描述与文档；不要把它留在独立 bundle 里。
 与工作区无关的功能仍独立成包。
 
 ## 命令

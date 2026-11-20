@@ -55,6 +55,20 @@ entries:
 三个源插件的独立仓库 `git status --short` 均为空，聚合生成没有改动源插件。
 聚合包自身的 `node_modules` 只包含三个 `link:` 符号链接。
 
+## 打包
+
+`pnpm pack` 会先运行 `prepack` 的漂移校验，然后生成 tarball：
+
+```text
+$ pnpm pack --pack-destination "$tmp"
+$ node ../../tools/dsh-aggregate/cli.mjs check .
+ok: 3 plugins, 3 rows; package.json and cordis.patch.yml are current
+package: @local/dsh-workspace-family@0.1.0
+```
+
+tarball 包含 `aggregate.yml`、`cordis.patch.yml`、`package.json`、`locale/`、`icon.svg`、
+两份 README 和 `docs/`；不包含 `node_modules/`。
+
 ## 未验证
 
 没有在真实 **插件** 页看这张卡的渲染，也没有在真实 profile 执行迁移。

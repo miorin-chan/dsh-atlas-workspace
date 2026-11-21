@@ -6,7 +6,9 @@ DSH 0.2.2-rc.5 中，重新生成并校验聚合仍得到四个插件行。
 在一次性 macOS Desktop profile 安装 Atlas 后，按 A、B、C 顺序打开三个会话。
 通过 Electron 原生按键桥验证 Ctrl+Tab、Ctrl+Shift+Tab 高亮顺序，以及 Mod+K 和 Mod+Shift+K 的原有视图。
 Esc 取消时保留当前会话，Enter 打开高亮会话。CDP 原生快捷键序列未稳定送达 Ctrl 抬起。
-实体键松开、快速点按及内嵌页面获得焦点时的行为仍待验证。
+用户随后用实体键确认，原版本松开 Ctrl 后没有切换。
+Workspace Switcher `f538151` 为 macOS Desktop 加入约 650 毫秒的停顿确认，33 项自动化测试及 Atlas 聚合检查通过。
+新版的实体键快速点按、停顿确认及内嵌页面焦点场景仍待复测。
 
 ## 2026-11-21 · 文件目录分组
 

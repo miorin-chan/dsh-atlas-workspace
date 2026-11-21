@@ -1,4 +1,4 @@
-# dsh-workspace-family 项目文档
+# dsh-workspace-atlas 项目文档
 
 ## 为什么是这三个
 
@@ -6,9 +6,9 @@
 
 | 插件 | 作用 | 行 id |
 | --- | --- | --- |
-| `dsh-workspace-picker` | 新会话页选择工作区 | `dsh-workspace-picker` |
-| `dsh-session-workspace-label` | 会话头部显示工作区名 | `dsh-session-workspace-label` |
-| `dsh-workspace-agent-preset` | 按工作区保存默认 Agent preset | `dsh-workspace-agent-preset` |
+| `dsh-workspace-welcome-switcher` | 新会话页的主动工作区选择 | `dsh-workspace-welcome-switcher` |
+| `dsh-workspace-title-badge` | 会话标题旁的工作区标题标签 | `dsh-workspace-title-badge` |
+| `dsh-workspace-default-preset` | 每个工作区一个默认 Agent preset | `dsh-workspace-default-preset` |
 
 `dsh-session-sounds`、`dsh-close-shortcuts` 等只与会话或界面有关，不属于工作区范围；
 `dsh-sideby-note` 是公开的侧栏笔记插件，保持独立。
@@ -22,14 +22,14 @@
 3. 运行 `pnpm run aggregate` 与 `pnpm run check`；
 4. 保持源插件的行 id 不变，并更新 locale 标题、描述与文档。
 
-当前卡片标题「工作区三件套」只描述现有的三个插件；新增插件时一并调整。
+卡片标题不枚举具体插件；新增插件时只需更新效果列表与描述。
 源插件仍可独立安装，但必须同时登记进聚合包，不能只保留独立 bundle。
 与工作区无关的功能仍应独立成包。
 
 ## 结构
 
 ```text
-dsh-workspace-family/
+dsh-workspace-atlas/
 ├── aggregate.yml            # 唯一事实来源：三个包与 link: spec
 ├── package.json             # 依赖、dsh.bundle、卡片元数据入口
 ├── cordis.patch.yml         # 由 dsh-aggregate 生成
@@ -80,8 +80,9 @@ DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
 
 ### 真实 profile
 
-1. 逐个移除或禁用三个独立 bundle：`dsh-workspace-picker`、`dsh-session-workspace-label`、`dsh-workspace-agent-preset`。
-2. 安装本包，确认 **插件** 页只剩一张 **工作区三件套** 卡。
+1. 逐个移除或禁用三个独立 bundle：`dsh-workspace-welcome-switcher`、`dsh-workspace-title-badge`、
+   `dsh-workspace-default-preset`。
+2. 安装本包，确认 **插件** 页只剩一张 **工作区模块化改良计划** 卡。
 3. 逐行开关，确认 HMR 只重组对应行；再关整张卡，确认三个行为都停止。
 
 不要先装聚合包再移除独立 bundle，也不要让两者同时存在：相同行 id 会触发 `duplicate loader entry id`，
@@ -89,9 +90,9 @@ DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
 
 ## 卡片元数据
 
-- `locale/en.json`：`Workspace family`
-- `locale/zh.json`：`工作区三件套`
-- `icon.svg`：三张叠放的工作区卡片
+- `locale/en.json`：`Workspace Modular Improvement Plan`
+- `locale/zh.json`：`工作区模块化改良计划`
+- `icon.svg`：三枚叠放的罗盘
 
 `package.json` 通过 `exports` 暴露 `./locale/*.json` 和 `./icon`，与独立插件的元数据读取方式一致。
 

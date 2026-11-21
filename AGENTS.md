@@ -1,4 +1,4 @@
-# dsh-workspace-family
+# dsh-workspace-atlas
 
 This repository is a thin aggregate bundle, not a behavior plugin.
 It combines workspace plugins into one Plugins card.

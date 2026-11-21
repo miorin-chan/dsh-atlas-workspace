@@ -1,9 +1,9 @@
 {
-  "name": "@local/dsh-workspace-family",
+  "name": "dsh-workspace-atlas",
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
-  "description": "One bundle card for the workspace picker, the workspace name in the session header, and per-workspace agent defaults.",
+  "description": "A modular program for differentiable, continuous improvement of the workspace experience.",
   "type": "module",
   "keywords": [
     "deepseek-harness",
@@ -43,15 +43,15 @@
     },
     "aggregate": {
       "plugins": [
-        "dsh-workspace-picker",
-        "dsh-session-workspace-label",
-        "dsh-workspace-agent-preset"
+        "dsh-workspace-welcome-switcher",
+        "dsh-workspace-title-badge",
+        "dsh-workspace-default-preset"
       ]
     }
   },
   "dependencies": {
-    "dsh-workspace-picker": "link:../dsh-workspace-picker",
-    "dsh-session-workspace-label": "link:../dsh-session-workspace-label",
-    "dsh-workspace-agent-preset": "link:../dsh-workspace-agent-preset"
+    "dsh-workspace-welcome-switcher": "link:../dsh-workspace-welcome-switcher",
+    "dsh-workspace-title-badge": "link:../dsh-workspace-title-badge",
+    "dsh-workspace-default-preset": "link:../dsh-workspace-default-preset"
   }
 }

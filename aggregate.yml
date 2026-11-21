@@ -1,15 +1,15 @@
 # Any new workspace-facing feature belongs in this aggregate. Add its package,
 # then run `pnpm run aggregate` and `pnpm run check`.
-name: '@local/dsh-workspace-family'
+name: 'dsh-workspace-atlas'
 version: 0.1.0
 private: true
-description: One bundle card for the workspace picker, the workspace name in the session header, and per-workspace agent defaults.
+description: 'A modular program for differentiable, continuous improvement of the workspace experience.'
 engines:
   dsh: '>=0.2.2-rc.3'
 plugins:
-  - name: dsh-workspace-picker
-    spec: link:../dsh-workspace-picker
-  - name: dsh-session-workspace-label
-    spec: link:../dsh-session-workspace-label
-  - name: dsh-workspace-agent-preset
-    spec: link:../dsh-workspace-agent-preset
+  - name: dsh-workspace-welcome-switcher
+    spec: link:../dsh-workspace-welcome-switcher
+  - name: dsh-workspace-title-badge
+    spec: link:../dsh-workspace-title-badge
+  - name: dsh-workspace-default-preset
+    spec: link:../dsh-workspace-default-preset

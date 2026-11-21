@@ -1,29 +1,29 @@
 # 验证记录
 
 - 日期：2026-11-20
-- 包版本：`@local/dsh-workspace-family` 0.1.0
+- 包版本：`dsh-workspace-atlas` 0.1.0
 - DSH：0.2.2-rc.5
 - 方式：生成/漂移校验 + 一次性 `DSH_HOME` + 真实 desktop profile 迁移。
 
 ## 生成与漂移
 
 ```text
-$ cd plugins/dsh-workspace-family
+$ cd plugins/dsh-workspace-atlas
 $ pnpm run check
 ok: 3 plugins, 3 rows; package.json and cordis.patch.yml are current
 ```
 
-生成的 `cordis.patch.yml` 包含三行，行 id 与源插件一致：`dsh-workspace-picker`、`dsh-session-workspace-label`、
-`dsh-workspace-agent-preset`。
+生成的 `cordis.patch.yml` 包含三行，行 id 与源插件一致：`dsh-workspace-welcome-switcher`、
+`dsh-workspace-title-badge`、`dsh-workspace-default-preset`。
 
 ## 一次性 profile
 
 ```text
 $ tmp="$(mktemp -d)"
-$ DSH_HOME="$tmp/home" dsh plugin --profile test add "$PWD/plugins/dsh-workspace-family"
+$ DSH_HOME="$tmp/home" dsh plugin --profile test add "$PWD/plugins/dsh-workspace-atlas"
 dsh: initialized profile test at .../profiles/test
 dependencies:
-+ @local/dsh-workspace-family 0.1.0 <- .../plugins/dsh-workspace-family
++ dsh-workspace-atlas 0.1.0 <- .../plugins/dsh-workspace-atlas
 ```
 
 `--dump-config-schema` 退出码 0：
@@ -31,9 +31,9 @@ dependencies:
 ```text
 diagnostics: []
 entries:
-- dsh-workspace-picker
-- dsh-session-workspace-label
-- dsh-workspace-agent-preset
+- dsh-workspace-welcome-switcher
+- dsh-workspace-title-badge
+- dsh-workspace-default-preset
 ```
 
 三个 entry 的 `status` 都是 `absent`，与没有配置 schema 的普通插件一致；`x-cordis.diagnostics` 为空，说明行都解析成功。
@@ -43,9 +43,9 @@ entries:
 从临时 profile 的解析基准读取聚合包：
 
 ```text
-@local/dsh-workspace-family/locale/en.json -> plugins/dsh-workspace-family/locale/en.json
-@local/dsh-workspace-family/locale/zh.json -> plugins/dsh-workspace-family/locale/zh.json
-@local/dsh-workspace-family/icon         -> plugins/dsh-workspace-family/icon.svg
+dsh-workspace-atlas/locale/en.json -> plugins/dsh-workspace-atlas/locale/en.json
+dsh-workspace-atlas/locale/zh.json -> plugins/dsh-workspace-atlas/locale/zh.json
+dsh-workspace-atlas/icon         -> plugins/dsh-workspace-atlas/icon.svg
 ```
 
 `locale/en.json` 与 `locale/zh.json` 都有 `meta.title` 和 `meta.description`。
@@ -58,23 +58,23 @@ entries:
 然后通过 `plugin_manager` 依次移除三个独立 bundle：
 
 ```text
-remove_bundle dsh-workspace-picker        -> changed: true, application: applied
-remove_bundle dsh-session-workspace-label -> changed: true, application: applied
-remove_bundle dsh-workspace-agent-preset  -> changed: true, application: applied
+remove_bundle dsh-workspace-welcome-switcher        -> changed: true, application: applied
+remove_bundle dsh-workspace-title-badge -> changed: true, application: applied
+remove_bundle dsh-workspace-default-preset  -> changed: true, application: applied
 ```
 
 安装聚合包：
 
 ```text
-install_bundle plugins/dsh-workspace-family
--> @local/dsh-workspace-family 0.1.0, enabled: true, application: applied
+install_bundle plugins/dsh-workspace-atlas
+-> dsh-workspace-atlas 0.1.0, enabled: true, application: applied
 ```
 
 迁移后的 profile `package.json` 只剩一个工作区依赖和一个工作区 bundle：
 
 ```text
-dependencies: @local/dsh-workspace-family
-bundles:      @local/dsh-workspace-family
+dependencies: dsh-workspace-atlas
+bundles:      dsh-workspace-atlas
 ```
 
 `list_bundles` 显示该 bundle `enabled: true`，`rows` 为三行，三个 `entryId` 都存在；
@@ -94,7 +94,7 @@ bundles:      @local/dsh-workspace-family
 $ pnpm pack --pack-destination "$tmp"
 $ node ../../tools/dsh-aggregate/cli.mjs check .
 ok: 3 plugins, 3 rows; package.json and cordis.patch.yml are current
-package: @local/dsh-workspace-family@0.1.0
+package: dsh-workspace-atlas@0.1.0
 ```
 
 tarball 包含 `aggregate.yml`、`cordis.patch.yml`、`package.json`、`locale/`、`icon.svg`、

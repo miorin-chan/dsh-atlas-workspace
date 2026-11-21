@@ -2,12 +2,12 @@
 # Run `node tools/dsh-aggregate/cli.mjs generate <dir>` after editing the manifest.
 
 - insert:
-    # dsh-workspace-picker
-    - id: dsh-workspace-picker
-      name: 'dsh-workspace-picker'
-    # dsh-session-workspace-label
-    - id: dsh-session-workspace-label
-      name: 'dsh-session-workspace-label'
-    # dsh-workspace-agent-preset
-    - id: dsh-workspace-agent-preset
-      name: 'dsh-workspace-agent-preset'
+    # dsh-workspace-welcome-switcher
+    - id: dsh-workspace-welcome-switcher
+      name: 'dsh-workspace-welcome-switcher'
+    # dsh-workspace-title-badge
+    - id: dsh-workspace-title-badge
+      name: 'dsh-workspace-title-badge'
+    # dsh-workspace-default-preset
+    - id: dsh-workspace-default-preset
+      name: 'dsh-workspace-default-preset'

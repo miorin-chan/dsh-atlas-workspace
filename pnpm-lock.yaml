@@ -8,12 +8,12 @@ importers:
 
   .:
     dependencies:
-      dsh-session-workspace-label:
-        specifier: link:../dsh-session-workspace-label
-        version: link:../dsh-session-workspace-label
-      dsh-workspace-agent-preset:
-        specifier: link:../dsh-workspace-agent-preset
-        version: link:../dsh-workspace-agent-preset
-      dsh-workspace-picker:
-        specifier: link:../dsh-workspace-picker
-        version: link:../dsh-workspace-picker
+      dsh-workspace-default-preset:
+        specifier: link:../dsh-workspace-default-preset
+        version: link:../dsh-workspace-default-preset
+      dsh-workspace-welcome-switcher:
+        specifier: link:../dsh-workspace-welcome-switcher
+        version: link:../dsh-workspace-welcome-switcher
+      dsh-workspace-title-badge:
+        specifier: link:../dsh-workspace-title-badge
+        version: link:../dsh-workspace-title-badge

@@ -1,12 +1,13 @@
 # @miorin/dsh-workspace-atlas 项目文档
 
-## 为什么是这三个
+## 聚合的插件
 
-工作区相关的插件有三类入口，正好可以收成一张卡：
+聚合包把这些工作区功能放在一张卡里。
 
 | 插件 | 作用 | 行 id |
 | --- | --- | --- |
 | `@miorin/dsh-workspace-welcome-switcher` | 会话检索、工作区树与新会话工作区选择 | `workspace-switcher` |
+| `dsh-workspace-file-tree` | 切换器的文件目录分组，需启用切换器 | `dsh-workspace-file-tree` |
 | `@miorin/dsh-workspace-title-badge` | 会话标题旁的工作区标题标签 | `workspace-title-badge` |
 | `@miorin/dsh-workspace-default-preset` | 每个工作区一个默认 Agent preset | `workspace-default-preset` |
 
@@ -30,7 +31,7 @@
 
 ```text
 dsh-workspace-atlas/
-├── aggregate.yml            # 唯一事实来源：三个包与 link: spec
+├── aggregate.yml            # 四个包与 link: spec
 ├── package.json             # 依赖、dsh.bundle、卡片元数据入口
 ├── cordis.patch.yml         # 由 dsh-aggregate 生成
 ├── locale/{en,zh}.json      # 聚合卡标题与描述
@@ -75,15 +76,15 @@ DSH_HOME="$tmp" dsh plugin --profile test add "$PWD"
 DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
 ```
 
-检查 `schema.json` 的 `x-cordis.diagnostics` 为空，并确认三个行 id 都出现在 `x-cordis.entries`。
+检查 `schema.json` 的 `x-cordis.diagnostics` 为空，并确认四个行 id 都出现在 `x-cordis.entries`。
 这一步不会碰真实 profile。
 
 ### 真实 profile
 
-1. 逐个移除或禁用三个独立 bundle：`@miorin/dsh-workspace-welcome-switcher`、`@miorin/dsh-workspace-title-badge`、
-   `@miorin/dsh-workspace-default-preset`。
+1. 移除独立 bundle：`@miorin/dsh-workspace-welcome-switcher`、`@miorin/dsh-workspace-title-badge`、
+   `@miorin/dsh-workspace-default-preset` 和 `dsh-workspace-file-tree`。
 2. 安装本包，确认 **插件** 页只剩一张 **工作区模块化改良计划** 卡。
-3. 逐行开关，确认 HMR 只重组对应行；再关整张卡，确认三个行为都停止。
+3. 逐行开关，确认 HMR 只重组对应行；再关整张卡，确认四项功能都停止。
 
 不要先装聚合包再移除独立 bundle，也不要让两者同时存在：相同行 id 会触发 `duplicate loader entry id`，
 即使其中一行是 disabled。
@@ -103,7 +104,7 @@ DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
   需要改成 `plugins.row.config` 或同时注册两处。
 - `pnpm run check` 依赖工作区的 `tools/dsh-aggregate`。
   发布到 npm 或从独立仓库构建前，需要把生成器构建成包内单文件脚本，否则 `prepack` 的相对路径不成立。
-- 聚合包的 `engines.dsh` 取三个插件的交集；升级任一插件时要同步检查。
+- 聚合包的 `engines.dsh` 取所有源插件的交集；升级任一插件时要同步检查。
 - 未在真实 **插件** 页验证卡片渲染；安装前先用一次性 profile 确认。
 
 ## 验证记录

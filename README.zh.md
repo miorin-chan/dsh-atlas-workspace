@@ -9,6 +9,7 @@
 
 - [`@miorin/dsh-workspace-welcome-switcher`](../dsh-workspace-welcome-switcher/README.zh.md) — 会话检索、
   工作区树快捷键和新会话工作区选择。
+- [`dsh-workspace-file-tree`](../dsh-workspace-file-tree/README.zh.md) 在切换器中按文件目录组织工作区。
 - [`@miorin/dsh-workspace-title-badge`](../dsh-workspace-title-badge/README.zh.md) — 会话标题旁的工作区名。
 - [`@miorin/dsh-workspace-default-preset`](../dsh-workspace-default-preset/README.zh.md) — 每个工作
   区一个默认 Agent preset。

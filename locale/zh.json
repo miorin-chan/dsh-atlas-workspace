@@ -1,6 +1,6 @@
 {
   "meta": {
     "title": "工作区模块化改良计划",
-    "description": "用模块化的方式围绕工作区使用体验提供可微的持续改进。"
+    "description": "工作区切换、目录分组、标题标签和默认 Agent preset。"
   }
 }

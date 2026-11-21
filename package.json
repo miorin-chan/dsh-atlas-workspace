@@ -44,6 +44,7 @@
     "aggregate": {
       "plugins": [
         "@miorin/dsh-workspace-welcome-switcher",
+        "dsh-workspace-file-tree",
         "@miorin/dsh-workspace-title-badge",
         "@miorin/dsh-workspace-default-preset"
       ]
@@ -52,6 +53,7 @@
   "dependencies": {
     "@miorin/dsh-workspace-welcome-switcher": "link:../dsh-workspace-welcome-switcher",
     "@miorin/dsh-workspace-title-badge": "link:../dsh-workspace-title-badge",
-    "@miorin/dsh-workspace-default-preset": "link:../dsh-workspace-default-preset"
+    "@miorin/dsh-workspace-default-preset": "link:../dsh-workspace-default-preset",
+    "dsh-workspace-file-tree": "link:../dsh-workspace-file-tree"
   }
 }

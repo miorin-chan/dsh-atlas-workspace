@@ -17,3 +17,6 @@ importers:
       '@miorin/dsh-workspace-welcome-switcher':
         specifier: link:../dsh-workspace-welcome-switcher
         version: link:../dsh-workspace-welcome-switcher
+      dsh-workspace-file-tree:
+        specifier: link:../dsh-workspace-file-tree
+        version: link:../dsh-workspace-file-tree

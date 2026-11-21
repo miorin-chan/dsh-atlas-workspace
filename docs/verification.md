@@ -15,8 +15,14 @@ Workspace Switcher `f538151` 为 macOS Desktop 加入约 650 毫秒的停顿确�
 单按左 Ctrl 时，三层都看到了按下和松开。
 两次 Ctrl+Tab 组合具备焦点，Quartz 都看到了 Tab 松开及 Ctrl 修饰状态清除。
 Electron 记录了 Ctrl 和 Tab 按下，并拦截 Tab 转发快捷键；Electron 和页面都未观察到组合后的两次松键。
-这将缺口定位在 Electron `before-input-event` 之前。
-尚未定位到 AppKit 或 Chromium 的具体处理分支。
+后一轮用 Electron 主线程的 AppKit 本地监听，确认组合后的 Ctrl 状态确实在应用内从按下变为松开。
+[Electron 44.7.0](https://github.com/electron/electron/blob/v44.7.0/shell/browser/api/electron_api_web_contents.cc#L1703-L1722)
+对被主进程取消的按下返回 `HANDLED`。
+[Chromium 152.0.7977.130](https://github.com/chromium/chromium/blob/152.0.7977.130/content/browser/renderer_host/render_widget_host_impl.cc#L1799-L1851)
+因此会在下一次按下前抑制随后的松键。
+
+另一轮实体键对照仅把 Tab 按下事件的取消从主进程移到页面捕获阶段，保留按下事件的原生 IPC 路由。
+两次 Ctrl 松开都重新到达页面。浮层分别在 Tab 按下后约 579 和 469 毫秒关闭并切换目标，早于 650 毫秒兜底。
 
 ## 2026-11-21 · 文件目录分组
 

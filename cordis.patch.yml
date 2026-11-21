@@ -2,9 +2,9 @@
 # Run `node tools/dsh-aggregate/cli.mjs generate <dir>` after editing the manifest.
 
 - insert:
-    # @miorin/dsh-workspace-welcome-switcher
+    # @miorin/dsh-workspace-switcher
     - id: workspace-switcher
-      name: '@miorin/dsh-workspace-welcome-switcher'
+      name: '@miorin/dsh-workspace-switcher'
     # dsh-workspace-file-tree
     - id: dsh-workspace-file-tree
       name: 'dsh-workspace-file-tree'

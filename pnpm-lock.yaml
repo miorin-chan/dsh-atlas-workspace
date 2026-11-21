@@ -11,12 +11,12 @@ importers:
       '@miorin/dsh-workspace-default-preset':
         specifier: link:../dsh-workspace-default-preset
         version: link:../dsh-workspace-default-preset
+      '@miorin/dsh-workspace-switcher':
+        specifier: link:../dsh-workspace-switcher
+        version: link:../dsh-workspace-switcher
       '@miorin/dsh-workspace-title-badge':
         specifier: link:../dsh-workspace-title-badge
         version: link:../dsh-workspace-title-badge
-      '@miorin/dsh-workspace-welcome-switcher':
-        specifier: link:../dsh-workspace-welcome-switcher
-        version: link:../dsh-workspace-welcome-switcher
       dsh-workspace-file-tree:
         specifier: link:../dsh-workspace-file-tree
         version: link:../dsh-workspace-file-tree

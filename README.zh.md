@@ -7,7 +7,7 @@
 用模块化的方式围绕工作区使用体验提供可微的持续改进。
 一张卡，一行一个增强，每行独立开关。
 
-- [`@miorin/dsh-workspace-welcome-switcher`](../dsh-workspace-welcome-switcher/README.zh.md) — 会话检索、
+- [`@miorin/dsh-workspace-switcher`](../dsh-workspace-switcher/README.zh.md) — 会话检索、
   工作区树快捷键和新会话工作区选择。
 - [`dsh-workspace-file-tree`](../dsh-workspace-file-tree/README.zh.md) 在切换器中按文件目录组织工作区。
 - [`@miorin/dsh-workspace-title-badge`](../dsh-workspace-title-badge/README.zh.md) — 会话标题旁的工作区名。

@@ -6,7 +6,7 @@
 
 | 插件 | 作用 | 行 id |
 | --- | --- | --- |
-| `@miorin/dsh-workspace-welcome-switcher` | 会话检索、工作区树与新会话工作区选择 | `workspace-switcher` |
+| `@miorin/dsh-workspace-switcher` | 会话检索、工作区树与新会话工作区选择 | `workspace-switcher` |
 | `dsh-workspace-file-tree` | 切换器的文件目录分组，需启用切换器 | `dsh-workspace-file-tree` |
 | `@miorin/dsh-workspace-title-badge` | 会话标题旁的工作区标题标签 | `workspace-title-badge` |
 | `@miorin/dsh-workspace-default-preset` | 每个工作区一个默认 Agent preset | `workspace-default-preset` |
@@ -81,7 +81,7 @@ DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
 
 ### 真实 profile
 
-1. 移除独立 bundle：`@miorin/dsh-workspace-welcome-switcher`、`@miorin/dsh-workspace-title-badge`、
+1. 移除独立 bundle：`@miorin/dsh-workspace-switcher`、`@miorin/dsh-workspace-title-badge`、
    `@miorin/dsh-workspace-default-preset` 和 `dsh-workspace-file-tree`。
 2. 安装本包，确认 **插件** 页只剩一张 **工作区模块化改良计划** 卡。
 3. 逐行开关，确认 HMR 只重组对应行；再关整张卡，确认四项功能都停止。

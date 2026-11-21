@@ -6,7 +6,7 @@
 
 | 插件 | 作用 | 行 id |
 | --- | --- | --- |
-| `@miorin/dsh-workspace-switcher` | 会话检索、工作区树与新会话工作区选择 | `workspace-switcher` |
+| `@miorin/dsh-workspace-switcher` | 会话检索、最近会话切换、工作区树与新会话工作区选择 | `workspace-switcher` |
 | `dsh-workspace-file-tree` | 切换器的文件目录分组，需启用切换器 | `dsh-workspace-file-tree` |
 | `@miorin/dsh-workspace-title-badge` | 会话标题旁的工作区标题标签 | `workspace-title-badge` |
 | `@miorin/dsh-workspace-default-preset` | 每个工作区一个默认 Agent preset | `workspace-default-preset` |

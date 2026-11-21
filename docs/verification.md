@@ -11,6 +11,13 @@ Workspace Switcher `f538151` 为 macOS Desktop 加入约 650 毫秒的停顿确�
 用户用实体键点按新版的 Ctrl+Tab，确认约 650 毫秒后切换。
 此次通过的是停顿确认路径。内嵌页面获得焦点时的行为未覆盖。
 
+在一次性 macOS Desktop profile 中，用实体键对照 Quartz、Electron `before-input-event` 和页面键盘事件。
+单按左 Ctrl 时，三层都看到了按下和松开。
+两次 Ctrl+Tab 组合具备焦点，Quartz 都看到了 Tab 松开及 Ctrl 修饰状态清除。
+Electron 记录了 Ctrl 和 Tab 按下，并拦截 Tab 转发快捷键；Electron 和页面都未观察到组合后的两次松键。
+这将缺口定位在 Electron `before-input-event` 之前。
+尚未定位到 AppKit 或 Chromium 的具体处理分支。
+
 ## 2026-11-21 · 文件目录分组
 
 DSH 0.2.2-rc.5 中，聚合生成与漂移检查通过。

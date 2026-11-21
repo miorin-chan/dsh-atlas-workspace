@@ -8,7 +8,7 @@ A modular program for differentiable, continuous improvement of the workspace ex
 One card, one row per enhancement; each row keeps its own switch.
 
 - [`@miorin/dsh-workspace-welcome-switcher`](../dsh-workspace-welcome-switcher/README.md) —
-  active workspace choice on the New Session screen.
+  session search and workspace tree shortcuts, plus the New Session workspace chooser.
 - [`@miorin/dsh-workspace-title-badge`](../dsh-workspace-title-badge/README.md) —
   the Workspace's name beside the session title.
 - [`@miorin/dsh-workspace-default-preset`](../dsh-workspace-default-preset/README.md) —

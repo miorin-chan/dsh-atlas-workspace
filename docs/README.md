@@ -6,7 +6,7 @@
 
 | 插件 | 作用 | 行 id |
 | --- | --- | --- |
-| `@miorin/dsh-workspace-welcome-switcher` | 新会话页的主动工作区选择 | `workspace-switcher` |
+| `@miorin/dsh-workspace-welcome-switcher` | 会话检索、工作区树与新会话工作区选择 | `workspace-switcher` |
 | `@miorin/dsh-workspace-title-badge` | 会话标题旁的工作区标题标签 | `workspace-title-badge` |
 | `@miorin/dsh-workspace-default-preset` | 每个工作区一个默认 Agent preset | `workspace-default-preset` |
 

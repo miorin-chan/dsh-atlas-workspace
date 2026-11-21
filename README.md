@@ -1,4 +1,4 @@
-# dsh-workspace-atlas
+# @miorin/dsh-workspace-atlas
 
 [简体中文](README.zh.md)
 
@@ -7,10 +7,12 @@
 A modular program for differentiable, continuous improvement of the workspace experience.
 One card, one row per enhancement; each row keeps its own switch.
 
-- [`dsh-workspace-welcome-switcher`](../dsh-workspace-welcome-switcher/README.md) —
+- [`@miorin/dsh-workspace-welcome-switcher`](../dsh-workspace-welcome-switcher/README.md) —
   active workspace choice on the New Session screen.
-- [`dsh-workspace-title-badge`](../dsh-workspace-title-badge/README.md) — the Workspace's name beside the session title.
-- [`dsh-workspace-default-preset`](../dsh-workspace-default-preset/README.md) — one default Agent preset per Workspace.
+- [`@miorin/dsh-workspace-title-badge`](../dsh-workspace-title-badge/README.md) —
+  the Workspace's name beside the session title.
+- [`@miorin/dsh-workspace-default-preset`](../dsh-workspace-default-preset/README.md) —
+  one default Agent preset per Workspace.
 
 Requires DeepSeek Harness 0.2.2-rc.3 or newer.
 

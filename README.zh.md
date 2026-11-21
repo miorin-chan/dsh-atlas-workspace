@@ -1,4 +1,4 @@
-# dsh-workspace-atlas
+# @miorin/dsh-workspace-atlas
 
 [English](README.md)
 
@@ -7,9 +7,11 @@
 用模块化的方式围绕工作区使用体验提供可微的持续改进。
 一张卡，一行一个增强，每行独立开关。
 
-- [`dsh-workspace-welcome-switcher`](../dsh-workspace-welcome-switcher/README.zh.md) — 新会话页的主动工作区选择。
-- [`dsh-workspace-title-badge`](../dsh-workspace-title-badge/README.zh.md) — 会话标题旁的工作区名。
-- [`dsh-workspace-default-preset`](../dsh-workspace-default-preset/README.zh.md) — 每个工作区一个默认 Agent preset。
+- [`@miorin/dsh-workspace-welcome-switcher`](../dsh-workspace-welcome-switcher/README.zh.md) — 新
+  会话页的主动工作区选择。
+- [`@miorin/dsh-workspace-title-badge`](../dsh-workspace-title-badge/README.zh.md) — 会话标题旁的工作区名。
+- [`@miorin/dsh-workspace-default-preset`](../dsh-workspace-default-preset/README.zh.md) — 每个工作
+  区一个默认 Agent preset。
 
 需要 DeepSeek Harness 0.2.2-rc.3 或更新版本。
 

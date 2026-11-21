@@ -1,5 +1,7 @@
 # 验证记录
 
+> 注：包名后来改为 `@miorin/dsh-workspace-*`，行 id 改为 `workspace-*`；本记录保留当时的名称。
+
 - 日期：2026-11-20
 - 包版本：`dsh-workspace-atlas` 0.1.0
 - DSH：0.2.2-rc.5

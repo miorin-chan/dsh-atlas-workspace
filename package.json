@@ -1,5 +1,5 @@
 {
-  "name": "dsh-workspace-atlas",
+  "name": "@miorin/dsh-workspace-atlas",
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
@@ -43,15 +43,15 @@
     },
     "aggregate": {
       "plugins": [
-        "dsh-workspace-welcome-switcher",
-        "dsh-workspace-title-badge",
-        "dsh-workspace-default-preset"
+        "@miorin/dsh-workspace-welcome-switcher",
+        "@miorin/dsh-workspace-title-badge",
+        "@miorin/dsh-workspace-default-preset"
       ]
     }
   },
   "dependencies": {
-    "dsh-workspace-welcome-switcher": "link:../dsh-workspace-welcome-switcher",
-    "dsh-workspace-title-badge": "link:../dsh-workspace-title-badge",
-    "dsh-workspace-default-preset": "link:../dsh-workspace-default-preset"
+    "@miorin/dsh-workspace-welcome-switcher": "link:../dsh-workspace-welcome-switcher",
+    "@miorin/dsh-workspace-title-badge": "link:../dsh-workspace-title-badge",
+    "@miorin/dsh-workspace-default-preset": "link:../dsh-workspace-default-preset"
   }
 }

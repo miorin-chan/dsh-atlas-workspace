@@ -1,15 +1,15 @@
 # Any new workspace-facing feature belongs in this aggregate. Add its package,
 # then run `pnpm run aggregate` and `pnpm run check`.
-name: 'dsh-workspace-atlas'
+name: '@miorin/dsh-workspace-atlas'
 version: 0.1.0
 private: true
-description: 'A modular program for differentiable, continuous improvement of the workspace experience.'
+description: 'Small workspace enhancements: switch, badge, defaults, one per row.'
 engines:
   dsh: '>=0.2.2-rc.3'
 plugins:
-  - name: dsh-workspace-welcome-switcher
+  - name: '@miorin/dsh-workspace-welcome-switcher'
     spec: link:../dsh-workspace-welcome-switcher
-  - name: dsh-workspace-title-badge
+  - name: '@miorin/dsh-workspace-title-badge'
     spec: link:../dsh-workspace-title-badge
-  - name: dsh-workspace-default-preset
+  - name: '@miorin/dsh-workspace-default-preset'
     spec: link:../dsh-workspace-default-preset

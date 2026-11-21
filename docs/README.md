@@ -1,4 +1,4 @@
-# dsh-workspace-atlas 项目文档
+# @miorin/dsh-workspace-atlas 项目文档
 
 ## 为什么是这三个
 
@@ -6,9 +6,9 @@
 
 | 插件 | 作用 | 行 id |
 | --- | --- | --- |
-| `dsh-workspace-welcome-switcher` | 新会话页的主动工作区选择 | `dsh-workspace-welcome-switcher` |
-| `dsh-workspace-title-badge` | 会话标题旁的工作区标题标签 | `dsh-workspace-title-badge` |
-| `dsh-workspace-default-preset` | 每个工作区一个默认 Agent preset | `dsh-workspace-default-preset` |
+| `@miorin/dsh-workspace-welcome-switcher` | 新会话页的主动工作区选择 | `workspace-switcher` |
+| `@miorin/dsh-workspace-title-badge` | 会话标题旁的工作区标题标签 | `workspace-title-badge` |
+| `@miorin/dsh-workspace-default-preset` | 每个工作区一个默认 Agent preset | `workspace-default-preset` |
 
 `dsh-session-sounds`、`dsh-close-shortcuts` 等只与会话或界面有关，不属于工作区范围；
 `dsh-sideby-note` 是公开的侧栏笔记插件，保持独立。
@@ -80,8 +80,8 @@ DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
 
 ### 真实 profile
 
-1. 逐个移除或禁用三个独立 bundle：`dsh-workspace-welcome-switcher`、`dsh-workspace-title-badge`、
-   `dsh-workspace-default-preset`。
+1. 逐个移除或禁用三个独立 bundle：`@miorin/dsh-workspace-welcome-switcher`、`@miorin/dsh-workspace-title-badge`、
+   `@miorin/dsh-workspace-default-preset`。
 2. 安装本包，确认 **插件** 页只剩一张 **工作区模块化改良计划** 卡。
 3. 逐行开关，确认 HMR 只重组对应行；再关整张卡，确认三个行为都停止。
 

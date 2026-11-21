@@ -8,12 +8,12 @@ importers:
 
   .:
     dependencies:
-      dsh-workspace-default-preset:
+      '@miorin/dsh-workspace-default-preset':
         specifier: link:../dsh-workspace-default-preset
         version: link:../dsh-workspace-default-preset
-      dsh-workspace-welcome-switcher:
-        specifier: link:../dsh-workspace-welcome-switcher
-        version: link:../dsh-workspace-welcome-switcher
-      dsh-workspace-title-badge:
+      '@miorin/dsh-workspace-title-badge':
         specifier: link:../dsh-workspace-title-badge
         version: link:../dsh-workspace-title-badge
+      '@miorin/dsh-workspace-welcome-switcher':
+        specifier: link:../dsh-workspace-welcome-switcher
+        version: link:../dsh-workspace-welcome-switcher

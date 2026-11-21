@@ -93,7 +93,7 @@ DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
 
 - `locale/en.json`：`Workspace Modular Improvement Plan`
 - `locale/zh.json`：`工作区模块化改良计划`
-- `icon.svg`：三枚叠放的罗盘
+- `icon.svg`：文件夹主体，右下角是 atlas 系列共用的罗盘徽记
 
 `package.json` 通过 `exports` 暴露 `./locale/*.json` 和 `./icon`，与独立插件的元数据读取方式一致。
 

@@ -11,6 +11,9 @@
     # dsh-workspace-list-toggle
     - id: dsh-workspace-list-toggle
       name: 'dsh-workspace-list-toggle'
+    # dsh-session-draft
+    - id: dsh-session-draft
+      name: 'dsh-session-draft'
     # @miorin/dsh-workspace-title-badge
     - id: workspace-title-badge
       name: '@miorin/dsh-workspace-title-badge'

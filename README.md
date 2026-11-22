@@ -11,6 +11,7 @@ One card, one row per enhancement; each row keeps its own switch.
   plus the New Session workspace chooser.
 - [`dsh-workspace-file-tree`](../dsh-workspace-file-tree/README.md) groups workspaces by directory in the switcher.
 - [Three sidebar list modes](../dsh-workspace-list-toggle/README.md) cycles through All → Collapsed → Needs attention.
+- [Session draft](../dsh-session-draft/README.md) marks unsent drafts and keeps their conversations in Needs attention.
 - [`@miorin/dsh-workspace-title-badge`](../dsh-workspace-title-badge/README.md) —
   the Workspace's name beside the session title.
 - [`@miorin/dsh-workspace-default-preset`](../dsh-workspace-default-preset/README.md) —

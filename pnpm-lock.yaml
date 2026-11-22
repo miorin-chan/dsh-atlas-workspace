@@ -17,6 +17,9 @@ importers:
       '@miorin/dsh-workspace-title-badge':
         specifier: link:../dsh-workspace-title-badge
         version: link:../dsh-workspace-title-badge
+      dsh-session-draft:
+        specifier: link:../dsh-session-draft
+        version: link:../dsh-session-draft
       dsh-workspace-file-tree:
         specifier: link:../dsh-workspace-file-tree
         version: link:../dsh-workspace-file-tree

@@ -3,7 +3,7 @@
 name: '@miorin/dsh-workspace-atlas'
 version: 0.1.0
 private: true
-description: 'Small workspace enhancements: switch, directory tree, three sidebar list modes, badge, defaults.'
+description: 'Small workspace enhancements: switch, directory tree, three sidebar list modes, drafts, badge, defaults.'
 engines:
   dsh: '>=0.2.2-rc.5'
 plugins:
@@ -12,6 +12,7 @@ plugins:
   - name: 'dsh-workspace-file-tree'
     spec: link:../dsh-workspace-file-tree
   - dsh-workspace-list-toggle
+  - dsh-session-draft
   - name: '@miorin/dsh-workspace-title-badge'
     spec: link:../dsh-workspace-title-badge
   - name: '@miorin/dsh-workspace-default-preset'

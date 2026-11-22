@@ -5,9 +5,8 @@
 ## 定位
 
 - 这是工作区插件的组合层，不是行为插件。
-- 行仍然指向各源插件（当前是 `@miorin/dsh-workspace-switcher`、`dsh-workspace-file-tree`、
-  `@miorin/dsh-workspace-title-badge`、`@miorin/dsh-workspace-default-preset`），
-  不在这里复制它们的 Host 或 Client 代码。
+- 行仍然指向各源插件，成员见 [聚合清单](aggregate.yml)。
+  各插件的 Host 和 Client 代码由源插件维护。
 - 独立 bundle 与聚合包互斥；重复行 id 是 DSH 启动级错误。
 
 ## 新增工作区功能

@@ -8,6 +8,7 @@
 | --- | --- | --- |
 | `@miorin/dsh-workspace-switcher` | 会话检索、最近会话切换、工作区树与新会话工作区选择 | `workspace-switcher` |
 | `dsh-workspace-file-tree` | 切换器的文件目录分组，需启用切换器 | `dsh-workspace-file-tree` |
+| `dsh-workspace-list-toggle` | 左侧栏列表按「全部 → 收起 → 需关注」循环切换 | `dsh-workspace-list-toggle` |
 | `@miorin/dsh-workspace-title-badge` | 会话标题旁的工作区标题标签 | `workspace-title-badge` |
 | `@miorin/dsh-workspace-default-preset` | 每个工作区一个默认 Agent preset | `workspace-default-preset` |
 
@@ -31,7 +32,7 @@
 
 ```text
 dsh-workspace-atlas/
-├── aggregate.yml            # 四个包与 link: spec
+├── aggregate.yml            # 源插件包与 link: spec
 ├── package.json             # 依赖、dsh.bundle、卡片元数据入口
 ├── cordis.patch.yml         # 由 dsh-aggregate 生成
 ├── locale/{en,zh}.json      # 聚合卡标题与描述
@@ -76,15 +77,14 @@ DSH_HOME="$tmp" dsh plugin --profile test add "$PWD"
 DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
 ```
 
-检查 `schema.json` 的 `x-cordis.diagnostics` 为空，并确认四个行 id 都出现在 `x-cordis.entries`。
-这一步不会碰真实 profile。
+检查 `schema.json` 的 `x-cordis.diagnostics` 为空，并确认上表的五个行 id 都出现在 `x-cordis.entries`。
+这一步使用独立于真实 profile 的临时目录。
 
 ### 真实 profile
 
-1. 移除独立 bundle：`@miorin/dsh-workspace-switcher`、`@miorin/dsh-workspace-title-badge`、
-   `@miorin/dsh-workspace-default-preset` 和 `dsh-workspace-file-tree`。
-2. 安装本包，确认 **插件** 页只剩一张 **工作区模块化改良计划** 卡。
-3. 逐行开关，确认 HMR 只重组对应行；再关整张卡，确认四项功能都停止。
+1. 记录已有成员的开关状态，移除目标 profile 中已独立安装的成员 bundle。
+2. 安装本包，确认 **插件** 页的 **工作区模块化改良计划** 卡按上表顺序显示五个成员。
+3. 恢复各行的开关状态。验证启停时检查 HMR 是否只重组对应行，并在整卡关闭后确认五项功能都停止。
 
 不要先装聚合包再移除独立 bundle，也不要让两者同时存在：相同行 id 会触发 `duplicate loader entry id`，
 即使其中一行是 disabled。

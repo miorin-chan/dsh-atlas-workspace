@@ -30,7 +30,7 @@
     "docs/verification.md"
   ],
   "engines": {
-    "dsh": ">=0.2.2-rc.3"
+    "dsh": ">=0.2.2-rc.5"
   },
   "scripts": {
     "aggregate": "node ../../tools/dsh-aggregate/cli.mjs generate .",
@@ -45,6 +45,7 @@
       "plugins": [
         "@miorin/dsh-workspace-switcher",
         "dsh-workspace-file-tree",
+        "dsh-workspace-list-toggle",
         "@miorin/dsh-workspace-title-badge",
         "@miorin/dsh-workspace-default-preset"
       ]
@@ -54,6 +55,7 @@
     "@miorin/dsh-workspace-title-badge": "link:../dsh-workspace-title-badge",
     "@miorin/dsh-workspace-default-preset": "link:../dsh-workspace-default-preset",
     "dsh-workspace-file-tree": "link:../dsh-workspace-file-tree",
-    "@miorin/dsh-workspace-switcher": "link:../dsh-workspace-switcher"
+    "@miorin/dsh-workspace-switcher": "link:../dsh-workspace-switcher",
+    "dsh-workspace-list-toggle": "link:../dsh-workspace-list-toggle"
   }
 }

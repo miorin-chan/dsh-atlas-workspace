@@ -10,11 +10,12 @@
 - [`@miorin/dsh-workspace-switcher`](../dsh-workspace-switcher/README.zh.md) — 会话检索、
   工作区树快捷键和新会话工作区选择。
 - [`dsh-workspace-file-tree`](../dsh-workspace-file-tree/README.zh.md) 在切换器中按文件目录组织工作区。
+- [左侧栏列表三态切换](../dsh-workspace-list-toggle/README.zh.md) 按「全部 → 收起 → 需关注」循环切换列表。
 - [`@miorin/dsh-workspace-title-badge`](../dsh-workspace-title-badge/README.zh.md) — 会话标题旁的工作区名。
 - [`@miorin/dsh-workspace-default-preset`](../dsh-workspace-default-preset/README.zh.md) — 每个工作
   区一个默认 Agent preset。
 
-需要 DeepSeek Harness 0.2.2-rc.3 或更新版本。
+需要 DeepSeek Harness 0.2.2-rc.5 或更新版本。
 
 ## 安装
 

@@ -20,3 +20,6 @@ importers:
       dsh-workspace-file-tree:
         specifier: link:../dsh-workspace-file-tree
         version: link:../dsh-workspace-file-tree
+      dsh-workspace-list-toggle:
+        specifier: link:../dsh-workspace-list-toggle
+        version: link:../dsh-workspace-list-toggle

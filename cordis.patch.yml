@@ -8,6 +8,9 @@
     # dsh-workspace-file-tree
     - id: dsh-workspace-file-tree
       name: 'dsh-workspace-file-tree'
+    # dsh-workspace-list-toggle
+    - id: dsh-workspace-list-toggle
+      name: 'dsh-workspace-list-toggle'
     # @miorin/dsh-workspace-title-badge
     - id: workspace-title-badge
       name: '@miorin/dsh-workspace-title-badge'

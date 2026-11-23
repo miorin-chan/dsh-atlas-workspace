@@ -8,24 +8,24 @@ importers:
 
   .:
     dependencies:
+      '@miorin/dsh-preview-file-navigation':
+        specifier: link:../dsh-preview-file-navigation
+        version: link:../dsh-preview-file-navigation
+      '@miorin/dsh-session-draft':
+        specifier: link:../dsh-session-draft
+        version: link:../dsh-session-draft
       '@miorin/dsh-workspace-default-preset':
         specifier: link:../dsh-workspace-default-preset
         version: link:../dsh-workspace-default-preset
+      '@miorin/dsh-workspace-file-tree':
+        specifier: link:../dsh-workspace-file-tree
+        version: link:../dsh-workspace-file-tree
+      '@miorin/dsh-workspace-list-toggle':
+        specifier: link:../dsh-workspace-list-toggle
+        version: link:../dsh-workspace-list-toggle
       '@miorin/dsh-workspace-switcher':
         specifier: link:../dsh-workspace-switcher
         version: link:../dsh-workspace-switcher
       '@miorin/dsh-workspace-title-badge':
         specifier: link:../dsh-workspace-title-badge
         version: link:../dsh-workspace-title-badge
-      dsh-preview-file-navigation:
-        specifier: link:../dsh-preview-file-navigation
-        version: link:../dsh-preview-file-navigation
-      dsh-session-draft:
-        specifier: link:../dsh-session-draft
-        version: link:../dsh-session-draft
-      dsh-workspace-file-tree:
-        specifier: link:../dsh-workspace-file-tree
-        version: link:../dsh-workspace-file-tree
-      dsh-workspace-list-toggle:
-        specifier: link:../dsh-workspace-list-toggle
-        version: link:../dsh-workspace-list-toggle

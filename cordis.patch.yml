@@ -5,18 +5,18 @@
     # @miorin/dsh-workspace-switcher
     - id: workspace-switcher
       name: '@miorin/dsh-workspace-switcher'
-    # dsh-workspace-file-tree
+    # @miorin/dsh-workspace-file-tree
     - id: dsh-workspace-file-tree
-      name: 'dsh-workspace-file-tree'
-    # dsh-preview-file-navigation
+      name: '@miorin/dsh-workspace-file-tree'
+    # @miorin/dsh-preview-file-navigation
     - id: dsh-preview-file-navigation
-      name: dsh-preview-file-navigation
-    # dsh-workspace-list-toggle
+      name: '@miorin/dsh-preview-file-navigation'
+    # @miorin/dsh-workspace-list-toggle
     - id: dsh-workspace-list-toggle
-      name: 'dsh-workspace-list-toggle'
-    # dsh-session-draft
+      name: '@miorin/dsh-workspace-list-toggle'
+    # @miorin/dsh-session-draft
     - id: dsh-session-draft
-      name: 'dsh-session-draft'
+      name: '@miorin/dsh-session-draft'
     # @miorin/dsh-workspace-title-badge
     - id: workspace-title-badge
       name: '@miorin/dsh-workspace-title-badge'

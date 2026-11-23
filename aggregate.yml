@@ -9,11 +9,14 @@ engines:
 plugins:
   - name: '@miorin/dsh-workspace-switcher'
     spec: link:../dsh-workspace-switcher
-  - name: 'dsh-workspace-file-tree'
+  - name: '@miorin/dsh-workspace-file-tree'
     spec: link:../dsh-workspace-file-tree
-  - dsh-preview-file-navigation
-  - dsh-workspace-list-toggle
-  - dsh-session-draft
+  - name: '@miorin/dsh-preview-file-navigation'
+    spec: link:../dsh-preview-file-navigation
+  - name: '@miorin/dsh-workspace-list-toggle'
+    spec: link:../dsh-workspace-list-toggle
+  - name: '@miorin/dsh-session-draft'
+    spec: link:../dsh-session-draft
   - name: '@miorin/dsh-workspace-title-badge'
     spec: link:../dsh-workspace-title-badge
   - name: '@miorin/dsh-workspace-default-preset'

@@ -22,10 +22,10 @@
 | 插件 | 作用 | 行 id |
 | --- | --- | --- |
 | `@miorin/dsh-workspace-switcher` | 会话检索、最近会话切换、工作区树与新会话工作区选择 | `workspace-switcher` |
-| `dsh-workspace-file-tree` | 切换器的文件目录分组，需启用切换器 | `dsh-workspace-file-tree` |
-| `dsh-preview-file-navigation` | 浏览和搜索当前工作目录，在右侧栏打开内置预览 | `dsh-preview-file-navigation` |
-| `dsh-workspace-list-toggle` | 左侧栏列表按「全部 → 收起 → 需关注」循环切换 | `dsh-workspace-list-toggle` |
-| `dsh-session-draft` | 标记有未发送草稿的会话，并让「需关注」保留它们 | `dsh-session-draft` |
+| `@miorin/dsh-workspace-file-tree` | 切换器的文件目录分组，需启用切换器 | `dsh-workspace-file-tree` |
+| `@miorin/dsh-preview-file-navigation` | 浏览和搜索当前工作目录，在右侧栏打开内置预览 | `dsh-preview-file-navigation` |
+| `@miorin/dsh-workspace-list-toggle` | 左侧栏列表按「全部 → 收起 → 需关注」循环切换 | `dsh-workspace-list-toggle` |
+| `@miorin/dsh-session-draft` | 标记有未发送草稿的会话，并让「需关注」保留它们 | `dsh-session-draft` |
 | `@miorin/dsh-workspace-title-badge` | 会话标题旁的工作区标题标签 | `workspace-title-badge` |
 | `@miorin/dsh-workspace-default-preset` | 每个工作区一个默认 Agent preset | `workspace-default-preset` |
 

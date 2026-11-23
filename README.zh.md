@@ -14,12 +14,6 @@
 - 侧栏使用单列表时，[在会话标题旁查看工作区名](../dsh-workspace-title-badge/README.zh.md)。
   右键侧栏工作区，在 **默认** 菜单里[为新会话设置 Agent preset](../dsh-workspace-default-preset/README.zh.md)。
 
-## 安装
-
 需要 DeepSeek Harness `0.2.2-rc.5` 的 Web 客户端。
 
-1. 在本目录运行 `pnpm install`。
-2. 如果当前 profile 已单独安装其中的插件，先记下开关状态，再移除独立安装的包，避免插件 ID 重复。
-3. 在 **插件 → 添加插件** 选择本目录，再到新卡片恢复已记下的开关状态。
-
-[维护与迁移](docs/README.md)
+[安装说明](docs/README.md#安装与迁移)

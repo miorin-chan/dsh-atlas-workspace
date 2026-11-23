@@ -84,9 +84,11 @@ DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
 
 ### 真实 profile
 
-1. 记录已有成员的开关状态，移除目标 profile 中已独立安装的成员 bundle。
-2. 安装本包；已有本地链接安装时，重新启用聚合包以载入新成员。
-3. 在 **插件** 页确认 **工作区模块化改良计划** 卡显示七个成员，按需恢复各行的开关状态。
+1. 在聚合包目录运行 `pnpm install`。
+2. 如果目标 profile 已单独安装任何成员，记下开关状态，再移除独立安装的包，避免行 ID 重复。
+3. 在 **插件 → 添加插件** 选择聚合包目录，然后在新卡片恢复各成员的开关状态。
+
+在插件页确认聚合卡显示七个成员。已有本地链接安装时，重新启用聚合包以载入新成员。
 
 不要先装聚合包再移除独立 bundle，也不要让两者同时存在：相同行 id 会触发 `duplicate loader entry id`，
 即使其中一行是 disabled。
@@ -115,3 +117,11 @@ DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
 生成、一次性 profile、真实 Desktop profile 迁移、schema 和元数据解析的结果见 [verification.md](verification.md)。
 一次性 Web profile 的 **插件** 页已确认聚合卡显示七行，关闭和重开「工作区文件」后，
 侧栏入口相应消失和恢复，其余六行保持开启。
+
+## Install
+
+1. Run `pnpm install` from the bundle directory.
+2. If any member is installed separately in the target profile, note its switch state and remove its bundle
+   to avoid duplicate row IDs.
+3. In **Plugins → Add plugin**, select the bundle directory.
+   Restore the saved switch states on the new card.

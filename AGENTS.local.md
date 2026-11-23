@@ -43,8 +43,11 @@ pnpm run check
 
 ## 变更
 
-- 增删插件先改 `aggregate.yml`，再生成并检查漂移。
-- 不改源插件的行 id；不改生成的 `cordis.patch.yml`。
+- `aggregate.yml` 定义聚合成员和行顺序。
+  增删插件时先改清单，再生成并检查漂移。
+- 保持源插件的行 id 稳定，profile 按行 id 匹配逐行覆盖。
+  生成文件的范围见[项目文档](docs/README.md#结构)。
+- 修改安装或迁移行为前，先读[安装与迁移](docs/README.md#安装与迁移)。
 - 卡片标题、描述和图标分别改 `locale/` 与 `icon.svg`。
 
 ## 复用 DSH 原生界面

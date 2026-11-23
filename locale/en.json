@@ -1,6 +1,7 @@
 {
   "meta": {
     "title": "Workspace Modular Improvement Plan",
-    "description": "Workspace switching, directory grouping, file browsing and preview, three sidebar list modes, draft indicators, title badges, and default Agent presets."
+    "description": "Workspace switching, directory grouping, file browsing and preview, three sidebar list modes, draft indicators, title badges, and default Agent presets.",
+    "detail": "README.md"
   }
 }

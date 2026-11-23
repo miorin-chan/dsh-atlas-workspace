@@ -9,23 +9,69 @@ importers:
   .:
     dependencies:
       '@miorin/dsh-preview-file-navigation':
-        specifier: link:../dsh-preview-file-navigation
-        version: link:../dsh-preview-file-navigation
+        specifier: 0.1.0
+        version: 0.1.0
       '@miorin/dsh-session-draft':
-        specifier: link:../dsh-session-draft
-        version: link:../dsh-session-draft
+        specifier: 0.1.0
+        version: 0.1.0
       '@miorin/dsh-workspace-default-preset':
-        specifier: link:../dsh-workspace-default-preset
-        version: link:../dsh-workspace-default-preset
+        specifier: 0.1.0
+        version: 0.1.0
       '@miorin/dsh-workspace-file-tree':
-        specifier: link:../dsh-workspace-file-tree
-        version: link:../dsh-workspace-file-tree
+        specifier: 0.1.0
+        version: 0.1.0
       '@miorin/dsh-workspace-list-toggle':
-        specifier: link:../dsh-workspace-list-toggle
-        version: link:../dsh-workspace-list-toggle
+        specifier: 0.1.0
+        version: 0.1.0
       '@miorin/dsh-workspace-switcher':
-        specifier: link:../dsh-workspace-switcher
-        version: link:../dsh-workspace-switcher
+        specifier: 0.1.0
+        version: 0.1.0
       '@miorin/dsh-workspace-title-badge':
-        specifier: link:../dsh-workspace-title-badge
-        version: link:../dsh-workspace-title-badge
+        specifier: 0.1.0
+        version: 0.1.0
+
+packages:
+
+  '@miorin/dsh-preview-file-navigation@0.1.0':
+    resolution: {integrity: sha512-6hhF1jwk3Tk1BT0ZYucoliqmNTrYYlu7kUOJoGTcxGtD4Krt99RRUM1LaW1eHhWmh0PV/rywLqgTO87UwLQXlQ==}
+    engines: {dsh: 0.2.2-rc.5}
+
+  '@miorin/dsh-session-draft@0.1.0':
+    resolution: {integrity: sha512-gcrK2HOIKBtON8bLKuV4Vgqn87anL7RRC52F1oowcXbuzjRq3GQCM0Bd3JM4LN9mrEPL34CEFbXXPBtTFQ35aw==}
+    engines: {dsh: '>=0.2.2-rc.5'}
+
+  '@miorin/dsh-workspace-default-preset@0.1.0':
+    resolution: {integrity: sha512-EcQnL72sW6UITd63RNtu+olN1vLqlENGK/YJ1mep+rp1BNWUD04mWRAZZzoEDdX/UrCg0IOtf7aF8TINfmD46g==}
+    engines: {dsh: '>=0.2.2-rc.3'}
+
+  '@miorin/dsh-workspace-file-tree@0.1.0':
+    resolution: {integrity: sha512-kjsKAwEAYQT+WhbxEK+z4qBd/+9L1/C7z1SKzvMt8bySnqgFGBs2K3AdmmzJK5egGRPOhZHjXGDxhW8nqP0F9g==}
+    engines: {dsh: '>=0.2.2-rc.3'}
+
+  '@miorin/dsh-workspace-list-toggle@0.1.0':
+    resolution: {integrity: sha512-AfC9swJYs++eoYYlnr5ZurlBU9JVDj+PTpfm8BSmUpkHP38Ccenr3j0+q+3XhPzzKy+EJJcBlsnUKXBPDHM0AQ==}
+    engines: {dsh: '>=0.2.2-rc.5'}
+
+  '@miorin/dsh-workspace-switcher@0.1.0':
+    resolution: {integrity: sha512-zmKyGWCVm4IHQzxetHZeF+PafPoazBZen5MEsr4f9mI26d0H8if7ZVq+bYhYjKyz2gvitFvfR8Bc2pL77rTN+A==}
+    engines: {dsh: '>=0.2.2-rc.3'}
+
+  '@miorin/dsh-workspace-title-badge@0.1.0':
+    resolution: {integrity: sha512-96aamySkzwmuQ+SkniwppUCsJ3BV6Fjp47iZQQjyPxMRV/NjAySQcJFfxuHCOWzVyw29TigBhwXC5q4pg0rE0g==}
+    engines: {dsh: '>=0.2.2-rc.3'}
+
+snapshots:
+
+  '@miorin/dsh-preview-file-navigation@0.1.0': {}
+
+  '@miorin/dsh-session-draft@0.1.0': {}
+
+  '@miorin/dsh-workspace-default-preset@0.1.0': {}
+
+  '@miorin/dsh-workspace-file-tree@0.1.0': {}
+
+  '@miorin/dsh-workspace-list-toggle@0.1.0': {}
+
+  '@miorin/dsh-workspace-switcher@0.1.0': {}
+
+  '@miorin/dsh-workspace-title-badge@0.1.0': {}

@@ -2,22 +2,21 @@
 # then run `pnpm run aggregate` and `pnpm run check`.
 name: '@miorin/dsh-atlas-workspace'
 version: 0.1.0
-private: true
 description: 'Small workspace enhancements: switch, directory grouping, file browsing, sidebar modes, drafts, badge, defaults.'
 engines:
   dsh: '0.2.2-rc.5'
 plugins:
   - name: '@miorin/dsh-workspace-switcher'
-    spec: link:../dsh-workspace-switcher
+    spec: 0.1.0
   - name: '@miorin/dsh-workspace-file-tree'
-    spec: link:../dsh-workspace-file-tree
+    spec: 0.1.0
   - name: '@miorin/dsh-preview-file-navigation'
-    spec: link:../dsh-preview-file-navigation
+    spec: 0.1.0
   - name: '@miorin/dsh-workspace-list-toggle'
-    spec: link:../dsh-workspace-list-toggle
+    spec: 0.1.0
   - name: '@miorin/dsh-session-draft'
-    spec: link:../dsh-session-draft
+    spec: 0.1.0
   - name: '@miorin/dsh-workspace-title-badge'
-    spec: link:../dsh-workspace-title-badge
+    spec: 0.1.0
   - name: '@miorin/dsh-workspace-default-preset'
-    spec: link:../dsh-workspace-default-preset
+    spec: 0.1.0

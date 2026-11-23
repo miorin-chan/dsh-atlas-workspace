@@ -1,5 +1,20 @@
 # @miorin/dsh-atlas-workspace 项目文档
 
+## 使用
+
+- 按 `Mod+K` [找会话](../../dsh-workspace-switcher/README.zh.md)，按 `Mod+Shift+K` 浏览工作区，
+  可[按目录分组](../../dsh-workspace-file-tree/README.zh.md)。
+  在新会话页点击工作区标签即可切换。
+- 点击左侧会话列表下方的工作区名称，即可[浏览、搜索和预览文件](../../dsh-preview-file-navigation/README.zh.md)。
+- 点击「工作区」或「会话」旁的小箭头[切换列表模式](../../dsh-workspace-list-toggle/README.zh.md)。
+  「需关注」会保留[有未发送草稿的会话](../../dsh-session-draft/README.zh.md)。
+- 侧栏使用单列表时，[在会话标题旁查看工作区名](../../dsh-workspace-title-badge/README.zh.md)。
+  右键侧栏工作区，在 **默认** 菜单里[为新会话设置 Agent preset](../../dsh-workspace-default-preset/README.zh.md)。
+
+## 兼容条件
+
+需要 DeepSeek Harness `0.2.2-rc.5` 的 Web 客户端。
+
 ## 聚合的插件
 
 聚合包把这些工作区功能放在一张卡里。
@@ -117,6 +132,24 @@ DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
 生成、一次性 profile、真实 Desktop profile 迁移、schema 和元数据解析的结果见 [verification.md](verification.md)。
 一次性 Web profile 的 **插件** 页已确认聚合卡显示七行，关闭和重开「工作区文件」后，
 侧栏入口相应消失和恢复，其余六行保持开启。
+
+## Usage
+
+- Press `Mod+K` to [find sessions](../../dsh-workspace-switcher/README.md).
+  Use `Mod+Shift+K` to browse workspaces, with [directory grouping](../../dsh-workspace-file-tree/README.md) available.
+  On the New Session screen, click the workspace chip to choose a workspace.
+- In the left sidebar, click the workspace name below the session list
+  to [browse, search, and preview files](../../dsh-preview-file-navigation/README.md).
+- Click the chevron beside Workspaces or Sessions to [switch list modes](../../dsh-workspace-list-toggle/README.md).
+  In **Needs attention**, [sessions with unsent drafts](../../dsh-session-draft/README.md) stay visible.
+- In the flat sidebar list,
+  see the [workspace name beside the session title](../../dsh-workspace-title-badge/README.md).
+  Right-click a workspace and choose **Default**
+  to [set the Agent preset for new sessions](../../dsh-workspace-default-preset/README.md).
+
+## Compatibility
+
+Requires the Web client on DeepSeek Harness `0.2.2-rc.5`.
 
 ## Install
 

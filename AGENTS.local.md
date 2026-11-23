@@ -37,6 +37,8 @@ pnpm run check
 
 - 设计与安装细节写在 [docs/README.md](docs/README.md)，用中文。
 - 面向读者的安装说明维护在 `README.md` 与 `README.zh.md`。
+- 插件详情页要整体短、每项一眼能懂。
+  只展示用户当下需要知道或操作的内容，细节按需展开。
 - Markdown 用 `docs/scripts/reflow` 重排；`prek install` 后可交给本地钩子。
 
 ## 变更

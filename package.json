@@ -39,12 +39,13 @@
     "dsh": "0.2.2-rc.5"
   },
   "scripts": {
-    "build": "node scripts/dsh-aggregate.mjs generate .",
+    "build:tools": "node --input-type=module -e \"import { existsSync } from 'node:fs'; const entry = './scripts/aggregate/build.mts'; if (existsSync(entry)) await import(entry)\" --",
+    "build": "npm run --silent build:tools && node scripts/dsh-aggregate.mjs generate .",
     "aggregate": "npm run build",
     "prepare": "npm run build 1>&2",
     "test": "npm run build && npm run check",
-    "check": "node scripts/dsh-aggregate.mjs check .",
-    "prepublishOnly": "node scripts/dsh-aggregate.mjs verify-release . 1>&2"
+    "check": "npm run --silent build:tools -- --check && node scripts/dsh-aggregate.mjs check .",
+    "prepublishOnly": "npm run --silent build:tools 1>&2 && node scripts/dsh-aggregate.mjs verify-release . 1>&2"
   },
   "dsh": {
     "bundle": {
@@ -70,6 +71,10 @@
     "@miorin/dsh-preview-file-navigation": "0.1.0",
     "@miorin/dsh-workspace-list-toggle": "0.1.0",
     "@miorin/dsh-session-draft": "0.1.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "yaml": "2.9.1"
   },
   "publishConfig": {
     "access": "public"

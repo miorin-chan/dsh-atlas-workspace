@@ -52,7 +52,8 @@ dsh-atlas-workspace/
 ├── aggregate.yml            # 源插件包与固定的 npm 版本
 ├── package.json             # 依赖、dsh.bundle、卡片元数据入口
 ├── cordis.patch.yml         # 由 dsh-aggregate 生成
-├── scripts/dsh-aggregate.mjs # 随仓库维护的单文件生成器
+├── scripts/aggregate/       # 生成器的 TypeScript 源码
+├── scripts/dsh-aggregate.mjs # 构建并随 npm 包发布的单文件生成器
 ├── locale/*.json            # 聚合卡标题与描述
 ├── icon.svg                 # 聚合卡图标
 ├── README.md / README.zh.md
@@ -66,10 +67,12 @@ dsh-atlas-workspace/
 
 ## 生成与校验
 
-`pnpm install` 会安装清单中的固定版本并生成入库的 patch。
+在 Node.js 22.18 或更新版本运行 `pnpm install`，
+安装固定版本并从 `scripts/aggregate/` 的 TypeScript 源码构建 `scripts/dsh-aggregate.mjs`，再更新入库的 patch。
 手动生成用 `npm run build`，原有的 `pnpm run aggregate` 仍可用。
-`npm test` 重新生成并校验，`npm run check` 只检查漂移。
-包内生成器包含 YAML 解析器，可在独立检出中直接运行。
+`npm test` 重新生成并校验，`npm run check` 只读检查生成器和聚合字段是否有漂移。
+发布包中的 `scripts/dsh-aggregate.mjs` 包含 YAML 解析器。
+装好成员依赖后，可用 `node scripts/dsh-aggregate.mjs check .` 校验。
 
 新增或升级成员时，先更新[聚合清单](../aggregate.yml)，
 用 `pnpm add --save-exact --ignore-scripts <包名>@<版本>` 装齐新版本，

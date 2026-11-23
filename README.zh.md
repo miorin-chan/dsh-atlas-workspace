@@ -1,4 +1,4 @@
-# @miorin/dsh-workspace-atlas
+# @miorin/dsh-atlas-workspace
 
 [English](README.md)
 

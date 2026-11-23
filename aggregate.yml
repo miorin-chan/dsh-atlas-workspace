@@ -1,6 +1,6 @@
 # Any new workspace-facing feature belongs in this aggregate. Add its package,
 # then run `pnpm run aggregate` and `pnpm run check`.
-name: '@miorin/dsh-workspace-atlas'
+name: '@miorin/dsh-atlas-workspace'
 version: 0.1.0
 private: true
 description: 'Small workspace enhancements: switch, directory tree, three sidebar list modes, drafts, badge, defaults.'

@@ -1,4 +1,4 @@
-# @miorin/dsh-workspace-atlas 项目文档
+# @miorin/dsh-atlas-workspace 项目文档
 
 ## 聚合的插件
 
@@ -32,7 +32,7 @@
 ## 结构
 
 ```text
-dsh-workspace-atlas/
+dsh-atlas-workspace/
 ├── aggregate.yml            # 源插件包与 link: spec
 ├── package.json             # 依赖、dsh.bundle、卡片元数据入口
 ├── cordis.patch.yml         # 由 dsh-aggregate 生成

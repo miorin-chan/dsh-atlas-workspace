@@ -1,41 +1,29 @@
-# @miorin/dsh-atlas-workspace
+# Workspace Modular Improvement Plan
 
 [简体中文](README.zh.md)
 
-**Workspace Modular Improvement Plan.**
+Find sessions, switch workspaces, preview files, and set defaults from the DSH interface.
+Each feature has its own switch.
 
-A modular program for differentiable, continuous improvement of the workspace experience.
-One card, one row per enhancement; each row keeps its own switch.
-
-- [`@miorin/dsh-workspace-switcher`](../dsh-workspace-switcher/README.md) — session search and workspace tree shortcuts,
-  plus the New Session workspace chooser.
-- [`dsh-workspace-file-tree`](../dsh-workspace-file-tree/README.md) groups workspaces by directory in the switcher.
-- [Workspace files](../dsh-preview-file-navigation/README.md) browses and searches the current working directory
-  and opens files in the built-in preview.
-- [Three sidebar list modes](../dsh-workspace-list-toggle/README.md) cycles through All → Collapsed → Needs attention.
-- [Session draft](../dsh-session-draft/README.md) marks unsent drafts and keeps their conversations in Needs attention.
-- [`@miorin/dsh-workspace-title-badge`](../dsh-workspace-title-badge/README.md) —
-  the Workspace's name beside the session title.
-- [`@miorin/dsh-workspace-default-preset`](../dsh-workspace-default-preset/README.md) —
-  one default Agent preset per Workspace.
-
-Requires DeepSeek Harness `0.2.2-rc.5` because Workspace files supports that exact version.
+- Press `Mod+K` to [find sessions](../dsh-workspace-switcher/README.md).
+  Use `Mod+Shift+K` to browse workspaces, with [directory grouping](../dsh-workspace-file-tree/README.md) available.
+  On the New Session screen, click the workspace chip to choose a workspace.
+- In the left sidebar, click the workspace name below the session list
+  to [browse, search, and preview files](../dsh-preview-file-navigation/README.md).
+- Click the chevron beside Workspaces or Sessions to [switch list modes](../dsh-workspace-list-toggle/README.md).
+  In **Needs attention**, [sessions with unsent drafts](../dsh-session-draft/README.md) stay visible.
+- In the flat sidebar list, see the [workspace name beside the session title](../dsh-workspace-title-badge/README.md).
+  Right-click a workspace and choose **Default**
+  to [set the Agent preset for new sessions](../dsh-workspace-default-preset/README.md).
 
 ## Install
 
-1. Run `pnpm install` here; the bundle resolves its rows through the created links.
-2. Remove the independent bundles; the aggregate and a source bundle insert the same row id.
-3. In **Plugins** > **Add plugin**, choose this directory, or install it with `plugin_manager`.
+Requires the Web client on DeepSeek Harness `0.2.2-rc.5`.
 
-## Scope
+1. Run `pnpm install` in this directory.
+2. If any included plugin is installed separately in this profile, note its switch state
+   and remove its bundle to avoid duplicate plugin IDs.
+3. In **Plugins → Add plugin**, select this directory.
+   Restore any saved switch states on the new card.
 
-New workspace-facing features belong here.
-Add the package to `aggregate.yml`, run `pnpm run aggregate`, and keep its row id stable.
-The source plugin may stay independently installable.
-
-## Development
-
-`aggregate.yml` is the source of truth; `pnpm run check` verifies the generated patch and dependencies.
-A published copy needs a vendored generator.
-
-[Project documentation](docs/README.md)
+[Maintenance and migration](docs/README.md)

@@ -1,38 +1,25 @@
-# @miorin/dsh-atlas-workspace
+# 工作区模块化改良计划
 
 [English](README.md)
 
-**工作区模块化改良计划。**
+在 DSH 中找会话、切换工作区、预览文件和设置默认项。
+各项功能可独立开关。
 
-用模块化的方式围绕工作区使用体验提供可微的持续改进。
-一张卡，一行一个增强，每行独立开关。
-
-- [`@miorin/dsh-workspace-switcher`](../dsh-workspace-switcher/README.zh.md) — 会话检索、
-  工作区树快捷键和新会话工作区选择。
-- [`dsh-workspace-file-tree`](../dsh-workspace-file-tree/README.zh.md) 在切换器中按文件目录组织工作区。
-- [工作区文件](../dsh-preview-file-navigation/README.zh.md) 浏览和搜索当前工作目录，并使用内置预览打开文件。
-- [左侧栏列表三态切换](../dsh-workspace-list-toggle/README.zh.md) 按「全部 → 收起 → 需关注」循环切换列表。
-- [会话草稿](../dsh-session-draft/README.zh.md) 在左侧用铅笔标记未发送草稿，并在「需关注」保留这些会话。
-- [`@miorin/dsh-workspace-title-badge`](../dsh-workspace-title-badge/README.zh.md) — 会话标题旁的工作区名。
-- [`@miorin/dsh-workspace-default-preset`](../dsh-workspace-default-preset/README.zh.md) — 每个工作
-  区一个默认 Agent preset。
-
-需要 DeepSeek Harness `0.2.2-rc.5`，这是「工作区文件」支持的确切版本。
+- 按 `Mod+K` [找会话](../dsh-workspace-switcher/README.zh.md)，按 `Mod+Shift+K` 浏览工作区，
+  可[按目录分组](../dsh-workspace-file-tree/README.zh.md)。
+  在新会话页点击工作区标签即可切换。
+- 点击左侧会话列表下方的工作区名称，即可[浏览、搜索和预览文件](../dsh-preview-file-navigation/README.zh.md)。
+- 点击「工作区」或「会话」旁的小箭头[切换列表模式](../dsh-workspace-list-toggle/README.zh.md)。
+  「需关注」会保留[有未发送草稿的会话](../dsh-session-draft/README.zh.md)。
+- 侧栏使用单列表时，[在会话标题旁查看工作区名](../dsh-workspace-title-badge/README.zh.md)。
+  右键侧栏工作区，在 **默认** 菜单里[为新会话设置 Agent preset](../dsh-workspace-default-preset/README.zh.md)。
 
 ## 安装
 
-1. 在本目录执行 `pnpm install`；bundle 通过生成的链接解析各行。
-2. 移除对应的独立 bundle；聚合包与源 bundle 会插入同一个行 id。
-3. 在 **插件** > **添加插件** 中选择本目录，或通过 `plugin_manager` 安装。
+需要 DeepSeek Harness `0.2.2-rc.5` 的 Web 客户端。
 
-## 范围
+1. 在本目录运行 `pnpm install`。
+2. 如果当前 profile 已单独安装其中的插件，先记下开关状态，再移除独立安装的包，避免插件 ID 重复。
+3. 在 **插件 → 添加插件** 选择本目录，再到新卡片恢复已记下的开关状态。
 
-新的工作区功能都应加入本聚合包：把包写进 `aggregate.yml`，运行 `pnpm run aggregate`，并保持行 id 稳定。
-源插件仍可独立安装。
-
-## 开发
-
-`aggregate.yml` 是唯一事实来源；`pnpm run check` 校验生成的 patch 与依赖。
-发布副本需要把生成器一起打包。
-
-[项目文档](docs/README.md)
+[维护与迁移](docs/README.md)

@@ -10,6 +10,8 @@ One card, one row per enhancement; each row keeps its own switch.
 - [`@miorin/dsh-workspace-switcher`](../dsh-workspace-switcher/README.md) — session search and workspace tree shortcuts,
   plus the New Session workspace chooser.
 - [`dsh-workspace-file-tree`](../dsh-workspace-file-tree/README.md) groups workspaces by directory in the switcher.
+- [Workspace files](../dsh-preview-file-navigation/README.md) browses and searches the current working directory
+  and opens files in the built-in preview.
 - [Three sidebar list modes](../dsh-workspace-list-toggle/README.md) cycles through All → Collapsed → Needs attention.
 - [Session draft](../dsh-session-draft/README.md) marks unsent drafts and keeps their conversations in Needs attention.
 - [`@miorin/dsh-workspace-title-badge`](../dsh-workspace-title-badge/README.md) —
@@ -17,7 +19,7 @@ One card, one row per enhancement; each row keeps its own switch.
 - [`@miorin/dsh-workspace-default-preset`](../dsh-workspace-default-preset/README.md) —
   one default Agent preset per Workspace.
 
-Requires DeepSeek Harness 0.2.2-rc.5 or newer.
+Requires DeepSeek Harness `0.2.2-rc.5` because Workspace files supports that exact version.
 
 ## Install
 

@@ -8,6 +8,7 @@
 | --- | --- | --- |
 | `@miorin/dsh-workspace-switcher` | 会话检索、最近会话切换、工作区树与新会话工作区选择 | `workspace-switcher` |
 | `dsh-workspace-file-tree` | 切换器的文件目录分组，需启用切换器 | `dsh-workspace-file-tree` |
+| `dsh-preview-file-navigation` | 浏览和搜索当前工作目录，在右侧栏打开内置预览 | `dsh-preview-file-navigation` |
 | `dsh-workspace-list-toggle` | 左侧栏列表按「全部 → 收起 → 需关注」循环切换 | `dsh-workspace-list-toggle` |
 | `dsh-session-draft` | 标记有未发送草稿的会话，并让「需关注」保留它们 | `dsh-session-draft` |
 | `@miorin/dsh-workspace-title-badge` | 会话标题旁的工作区标题标签 | `workspace-title-badge` |
@@ -78,14 +79,14 @@ DSH_HOME="$tmp" dsh plugin --profile test add "$PWD"
 DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
 ```
 
-检查 `schema.json` 的 `x-cordis.diagnostics` 为空，并确认上表的六个行 id 都出现在 `x-cordis.entries`。
+检查 `schema.json` 的 `x-cordis.diagnostics` 为空，并确认上表的七个行 id 都出现在 `x-cordis.entries`。
 这一步使用独立于真实 profile 的临时目录。
 
 ### 真实 profile
 
 1. 记录已有成员的开关状态，移除目标 profile 中已独立安装的成员 bundle。
-2. 安装本包，确认 **插件** 页的 **工作区模块化改良计划** 卡按上表顺序显示六个成员。
-3. 恢复各行的开关状态。验证启停时检查 HMR 是否只重组对应行，并在整卡关闭后确认六项功能都停止。
+2. 安装本包；已有本地链接安装时，重新启用聚合包以载入新成员。
+3. 在 **插件** 页确认 **工作区模块化改良计划** 卡显示七个成员，按需恢复各行的开关状态。
 
 不要先装聚合包再移除独立 bundle，也不要让两者同时存在：相同行 id 会触发 `duplicate loader entry id`，
 即使其中一行是 disabled。
@@ -106,9 +107,9 @@ DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
 - `pnpm run check` 依赖工作区的 `tools/dsh-aggregate`。
   发布到 npm 或从独立仓库构建前，需要把生成器构建成包内单文件脚本，否则 `prepack` 的相对路径不成立。
 - 聚合包的 `engines.dsh` 取所有源插件的交集；升级任一插件时要同步检查。
-- 未在真实 **插件** 页验证卡片渲染；安装前先用一次性 profile 确认。
 
 ## 验证记录
 
-生成、一次性 profile、真实 desktop profile 迁移、schema 和元数据解析的结果见 [verification.md](verification.md)。
-真实 **插件** 页已确认当前可用；逐行开关回归尚未记录。
+生成、一次性 profile、真实 Desktop profile 迁移、schema 和元数据解析的结果见 [verification.md](verification.md)。
+一次性 Web profile 的 **插件** 页已确认聚合卡显示七行，关闭和重开「工作区文件」后，
+侧栏入口相应消失和恢复，其余六行保持开启。

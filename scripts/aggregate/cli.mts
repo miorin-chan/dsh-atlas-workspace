@@ -9,9 +9,9 @@
  * profile.
  *
  * Usage:
- *   node tools/dsh-aggregate/cli.mjs generate [dir] [--manifest <path>]
- *   node tools/dsh-aggregate/cli.mjs check [dir] [--manifest <path>]
- *   node tools/dsh-aggregate/cli.mjs verify-release [dir] [--manifest <path>]
+ *   node tools/dsh-aggregate/src/cli.mts generate [dir] [--manifest <path>]
+ *   node tools/dsh-aggregate/src/cli.mts check [dir] [--manifest <path>]
+ *   node tools/dsh-aggregate/src/cli.mts verify-release [dir] [--manifest <path>]
  *
  * `generate` writes `package.json` and the patch. `check` detects drift.
  * `verify-release` checks the installed dependency tree and declared pins

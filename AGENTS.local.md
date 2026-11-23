@@ -22,16 +22,9 @@
   扩展点不足时说明缺口，并将实现限制在插件能力内。
 - 源插件界面的常见操作按钮优先使用易识别的图标，仅在图标无法明确表达操作含义时使用可见文字。
 
-## 命令
+## 构建与发布
 
-```sh
-pnpm install
-pnpm run aggregate
-pnpm run check
-```
-
-`pnpm run aggregate` 依赖工作区的 `../../tools/dsh-aggregate`。
-发布或迁移到独立环境前，先把生成器做成包内单文件脚本；当前 `prepack` 只适用于本工作区布局。
+开发、版本变更和独立检出的发布命令见[生成与校验](docs/README.md#生成与校验)。
 
 ## 文档
 

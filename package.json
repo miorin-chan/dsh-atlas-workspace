@@ -19,6 +19,7 @@
   "files": [
     "aggregate.yml",
     "cordis.patch.yml",
+    "scripts/dsh-aggregate.mjs",
     "locale/*.json",
     "icon.svg",
     "README.md",
@@ -38,9 +39,12 @@
     "dsh": "0.2.2-rc.5"
   },
   "scripts": {
-    "aggregate": "node ../../tools/dsh-aggregate/cli.mjs generate .",
-    "check": "node ../../tools/dsh-aggregate/cli.mjs check .",
-    "prepack": "node ../../tools/dsh-aggregate/cli.mjs check ."
+    "build": "node scripts/dsh-aggregate.mjs generate .",
+    "aggregate": "npm run build",
+    "prepare": "npm run build 1>&2",
+    "test": "npm run build && npm run check",
+    "check": "node scripts/dsh-aggregate.mjs check .",
+    "prepublishOnly": "node scripts/dsh-aggregate.mjs verify-release . 1>&2"
   },
   "dsh": {
     "bundle": {

@@ -1,5 +1,5 @@
 # Any new workspace-facing feature belongs in this aggregate. Add its package,
-# then run `pnpm run aggregate` and `pnpm run check`.
+# then install its pinned version and run `npm run build` and `npm run check`.
 name: '@miorin/dsh-atlas-workspace'
 version: 0.1.0
 description: 'Small workspace enhancements: switch, directory grouping, file browsing, sidebar modes, drafts, badge, defaults.'

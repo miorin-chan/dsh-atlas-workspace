@@ -36,10 +36,10 @@
 
 本聚合包是工作区功能的默认落点。新增“选择、命名、组织工作区，或设置工作区默认值”一类能力时：
 
-1. 在源插件仓库实现行为；
-2. 把插件包加入 `aggregate.yml`；
-3. 运行 `pnpm run aggregate` 与 `pnpm run check`；
-4. 保持源插件的行 id 不变，并更新 locale 标题、描述与文档。
+1. 在源插件仓库实现行为并发布，保持源插件的行 id 不变。
+2. 在 `aggregate.yml` 添加插件包和固定版本。
+3. 依照下文安装依赖，生成并校验 patch。
+4. 更新 locale 标题、描述与文档。
 
 卡片标题不枚举具体插件；新增插件时只需更新效果列表与描述。
 源插件仍可独立安装，但必须同时登记进聚合包，不能只保留独立 bundle。
@@ -49,9 +49,10 @@
 
 ```text
 dsh-atlas-workspace/
-├── aggregate.yml            # 源插件包与 link: spec
+├── aggregate.yml            # 源插件包与固定的 npm 版本
 ├── package.json             # 依赖、dsh.bundle、卡片元数据入口
 ├── cordis.patch.yml         # 由 dsh-aggregate 生成
+├── scripts/dsh-aggregate.mjs # 随仓库维护的单文件生成器
 ├── locale/*.json            # 聚合卡标题与描述
 ├── icon.svg                 # 聚合卡图标
 ├── README.md / README.zh.md
@@ -65,22 +66,22 @@ dsh-atlas-workspace/
 
 ## 生成与校验
 
-在包目录执行：
+`pnpm install` 会安装清单中的固定版本并生成入库的 patch。
+手动生成用 `npm run build`，原有的 `pnpm run aggregate` 仍可用。
+`npm test` 重新生成并校验，`npm run check` 只检查漂移。
+包内生成器包含 YAML 解析器，可在独立检出中直接运行。
 
-```sh
-pnpm run aggregate
-pnpm run check
-```
+新增或升级成员时，先更新[聚合清单](../aggregate.yml)，
+用 `pnpm add --save-exact --ignore-scripts <包名>@<版本>` 装齐新版本，
+再执行 `npm run build` 与 `pnpm install`，同步提交依赖清单、锁文件和 patch。
+联调本地成员时，先在各成员的检出目录构建，再用聚合包 `node_modules` 里的本地链接，成员版本须匹配固定版本。
 
-等价命令：
-
-```sh
-node ../../tools/dsh-aggregate/cli.mjs generate .
-node ../../tools/dsh-aggregate/cli.mjs check .
-```
-
-工具会拒绝重复行 id、相对路径行、`override` patch 和包名不匹配。
+工具会拒绝重复行 id、相对路径行、`override` patch，以及包名或固定版本不匹配。
 生成的 patch 沿用源插件的行 id 和 `name`，因此迁移后 profile 里已有的逐行覆盖继续生效。
+
+`npm pack --dry-run --json` 会重新生成 patch 并列出包内文件，可使用版本匹配的本地链接。
+发布从独立干净检出执行 `pnpm install --frozen-lockfile`，检查生成的改动并运行 `npm test`。
+发布检查要求成员来自该检出的注册表依赖树。
 
 ## 安装与迁移
 
@@ -123,8 +124,6 @@ DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
 - 本包只是组合层，不提供配置页；配置入口仍由各插件自己的界面负责。
   如果以后某个插件按 `plugins.bundle.config`（key 是包名）注册配置页，聚合后 key 会变成聚合包名，
   需要改成 `plugins.row.config` 或同时注册两处。
-- `pnpm run check` 依赖工作区的 `tools/dsh-aggregate`。
-  发布到 npm 或从独立仓库构建前，需要把生成器构建成包内单文件脚本，否则 `prepack` 的相对路径不成立。
 - 聚合包的 `engines.dsh` 取所有源插件的交集；升级任一插件时要同步检查。
 
 ## 验证记录

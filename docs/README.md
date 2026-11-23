@@ -37,7 +37,7 @@ dsh-atlas-workspace/
 ├── aggregate.yml            # 源插件包与 link: spec
 ├── package.json             # 依赖、dsh.bundle、卡片元数据入口
 ├── cordis.patch.yml         # 由 dsh-aggregate 生成
-├── locale/{en,zh}.json      # 聚合卡标题与描述
+├── locale/*.json            # 聚合卡标题与描述
 ├── icon.svg                 # 聚合卡图标
 ├── README.md / README.zh.md
 ├── AGENTS.md / AGENTS.local.md
@@ -92,6 +92,8 @@ DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
 即使其中一行是 disabled。
 
 ## 卡片元数据
+
+聚合卡的标题和描述维护八种语言（`en zh ja de es fr pt ru`）。
 
 - `locale/en.json`：`Workspace Modular Improvement Plan`
 - `locale/zh.json`：`工作区模块化改良计划`

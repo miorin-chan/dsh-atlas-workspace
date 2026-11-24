@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Plan modular de mejora de los espacios de trabajo",
-    "description": "Cambia de espacio de trabajo y explora archivos con vista previa. Incluye tres modos de lista en la barra lateral, indicadores de borradores de sesión, etiquetas junto al título de la sesión y presets de agente predeterminados.",
+    "description": "Busca sesiones, cambia de espacio de trabajo y explora archivos con vista previa. Las etiquetas junto a los títulos de sesión indican el espacio de trabajo. Puedes elegir un preset de agente predeterminado para cada espacio.",
     "detail": "README.es.md"
   }
 }

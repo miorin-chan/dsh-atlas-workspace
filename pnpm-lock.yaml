@@ -11,13 +11,7 @@ importers:
       '@miorin/dsh-preview-file-navigation':
         specifier: 0.1.0
         version: 0.1.0
-      '@miorin/dsh-session-draft':
-        specifier: 0.1.0
-        version: 0.1.0
       '@miorin/dsh-workspace-default-preset':
-        specifier: 0.1.0
-        version: 0.1.0
-      '@miorin/dsh-workspace-list-toggle':
         specifier: 0.1.0
         version: 0.1.0
       '@miorin/dsh-workspace-switcher':
@@ -196,17 +190,9 @@ packages:
     resolution: {integrity: sha512-6hhF1jwk3Tk1BT0ZYucoliqmNTrYYlu7kUOJoGTcxGtD4Krt99RRUM1LaW1eHhWmh0PV/rywLqgTO87UwLQXlQ==}
     engines: {dsh: 0.2.2-rc.5}
 
-  '@miorin/dsh-session-draft@0.1.0':
-    resolution: {integrity: sha512-gcrK2HOIKBtON8bLKuV4Vgqn87anL7RRC52F1oowcXbuzjRq3GQCM0Bd3JM4LN9mrEPL34CEFbXXPBtTFQ35aw==}
-    engines: {dsh: '>=0.2.2-rc.5'}
-
   '@miorin/dsh-workspace-default-preset@0.1.0':
     resolution: {integrity: sha512-EcQnL72sW6UITd63RNtu+olN1vLqlENGK/YJ1mep+rp1BNWUD04mWRAZZzoEDdX/UrCg0IOtf7aF8TINfmD46g==}
     engines: {dsh: '>=0.2.2-rc.3'}
-
-  '@miorin/dsh-workspace-list-toggle@0.1.0':
-    resolution: {integrity: sha512-AfC9swJYs++eoYYlnr5ZurlBU9JVDj+PTpfm8BSmUpkHP38Ccenr3j0+q+3XhPzzKy+EJJcBlsnUKXBPDHM0AQ==}
-    engines: {dsh: '>=0.2.2-rc.5'}
 
   '@miorin/dsh-workspace-switcher@0.1.0':
     resolution: {integrity: sha512-zmKyGWCVm4IHQzxetHZeF+PafPoazBZen5MEsr4f9mI26d0H8if7ZVq+bYhYjKyz2gvitFvfR8Bc2pL77rTN+A==}
@@ -308,11 +294,7 @@ snapshots:
 
   '@miorin/dsh-preview-file-navigation@0.1.0': {}
 
-  '@miorin/dsh-session-draft@0.1.0': {}
-
   '@miorin/dsh-workspace-default-preset@0.1.0': {}
-
-  '@miorin/dsh-workspace-list-toggle@0.1.0': {}
 
   '@miorin/dsh-workspace-switcher@0.1.0': {}
 

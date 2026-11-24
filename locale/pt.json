@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Plano modular de melhorias para os espaços de trabalho",
-    "description": "Alterne entre espaços de trabalho e navegue pelos arquivos com prévia. Inclui três modos de lista na barra lateral, indicadores de rascunhos de sessão, etiquetas ao lado do título da sessão e presets de agente padrão.",
+    "description": "Busque sessões, alterne entre espaços de trabalho e navegue pelos arquivos com prévia. As etiquetas ao lado dos títulos das sessões indicam o espaço de trabalho. Defina um preset de agente padrão para cada espaço.",
     "detail": "README.pt.md"
   }
 }

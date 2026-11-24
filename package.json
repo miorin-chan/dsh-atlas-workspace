@@ -55,8 +55,6 @@
       "plugins": [
         "@miorin/dsh-workspace-switcher",
         "@miorin/dsh-preview-file-navigation",
-        "@miorin/dsh-workspace-list-toggle",
-        "@miorin/dsh-session-draft",
         "@miorin/dsh-workspace-title-badge",
         "@miorin/dsh-workspace-default-preset"
       ]
@@ -66,9 +64,7 @@
     "@miorin/dsh-workspace-title-badge": "0.1.0",
     "@miorin/dsh-workspace-default-preset": "0.1.0",
     "@miorin/dsh-workspace-switcher": "0.1.0",
-    "@miorin/dsh-preview-file-navigation": "0.1.0",
-    "@miorin/dsh-workspace-list-toggle": "0.1.0",
-    "@miorin/dsh-session-draft": "0.1.0"
+    "@miorin/dsh-preview-file-navigation": "0.1.0"
   },
   "devDependencies": {
     "esbuild": "0.28.2",

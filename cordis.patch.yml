@@ -8,12 +8,6 @@
     # @miorin/dsh-preview-file-navigation
     - id: dsh-preview-file-navigation
       name: '@miorin/dsh-preview-file-navigation'
-    # @miorin/dsh-workspace-list-toggle
-    - id: dsh-workspace-list-toggle
-      name: '@miorin/dsh-workspace-list-toggle'
-    # @miorin/dsh-session-draft
-    - id: dsh-session-draft
-      name: '@miorin/dsh-session-draft'
     # @miorin/dsh-workspace-title-badge
     - id: workspace-title-badge
       name: '@miorin/dsh-workspace-title-badge'

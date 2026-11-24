@@ -5,8 +5,6 @@
 - 按 `Mod+K` [找会话](../../dsh-workspace-switcher/README.zh.md)，按 `Mod+Shift+K` 浏览工作区。
   在新会话页点击工作区标签即可切换。
 - 点击左侧会话列表下方的工作区名称，即可[浏览、搜索和预览文件](../../dsh-preview-file-navigation/README.zh.md)。
-- 点击「工作区」或「会话」旁的小箭头[切换列表模式](../../dsh-workspace-list-toggle/README.zh.md)。
-  「需关注」会保留[有未发送草稿的会话](../../dsh-session-draft/README.zh.md)。
 - 侧栏使用单列表时，[在会话标题旁查看工作区名](../../dsh-workspace-title-badge/README.zh.md)。
   右键侧栏工作区，在 **默认** 菜单里[为新会话设置 Agent preset](../../dsh-workspace-default-preset/README.zh.md)。
 
@@ -22,8 +20,6 @@
 | --- | --- | --- |
 | `@miorin/dsh-workspace-switcher` | 会话检索、最近会话切换、工作区树与新会话工作区选择 | `workspace-switcher` |
 | `@miorin/dsh-preview-file-navigation` | 浏览和搜索当前工作目录，在右侧栏打开内置预览 | `dsh-preview-file-navigation` |
-| `@miorin/dsh-workspace-list-toggle` | 左侧栏列表按「全部 → 收起 → 需关注」循环切换 | `dsh-workspace-list-toggle` |
-| `@miorin/dsh-session-draft` | 标记有未发送草稿的会话，并让「需关注」保留它们 | `dsh-session-draft` |
 | `@miorin/dsh-workspace-title-badge` | 会话标题旁的工作区标题标签 | `workspace-title-badge` |
 | `@miorin/dsh-workspace-default-preset` | 每个工作区一个默认 Agent preset | `workspace-default-preset` |
 
@@ -96,7 +92,7 @@ DSH_HOME="$tmp" dsh plugin --profile test add "$PWD"
 DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
 ```
 
-检查 `schema.json` 的 `x-cordis.diagnostics` 为空，并确认上表的六个行 id 都出现在 `x-cordis.entries`。
+检查 `schema.json` 的 `x-cordis.diagnostics` 为空，并确认上表的四个行 id 都出现在 `x-cordis.entries`。
 这一步使用独立于真实 profile 的临时目录。
 
 ### 真实 profile
@@ -105,10 +101,17 @@ DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
 2. 如果目标 profile 已单独安装任何成员，记下开关状态，再移除独立安装的包，避免行 ID 重复。
 3. 在 **插件 → 添加插件** 选择聚合包目录，然后在新卡片恢复各成员的开关状态。
 
-在插件页确认聚合卡显示六个成员。已有本地链接安装时，重新启用聚合包以应用成员变更。
+在插件页确认聚合卡显示四个成员。已有本地链接安装时，重新启用聚合包以应用成员变更。
 
 不要先装聚合包再移除独立 bundle，也不要让两者同时存在：相同行 id 会触发 `duplicate loader entry id`，
 即使其中一行是 disabled。
+
+### 从旧版工作区 Atlas 迁移
+
+侧栏列表模式（`dsh-workspace-list-toggle`）和会话草稿提示（`dsh-session-draft`）已迁入
+[列表模块化改良计划](../../dsh-atlas-list/README.zh.md)。
+先更新工作区 Atlas，并确认工作区卡已移除这两个成员，再启用列表 Atlas。
+两个插件使用原有行 id，已有的逐行覆盖仍按行 id 匹配。
 
 ## 卡片元数据
 
@@ -140,8 +143,6 @@ DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
   On the New Session screen, click the workspace chip to choose a workspace.
 - In the left sidebar, click the workspace name below the session list
   to [browse, search, and preview files](../../dsh-preview-file-navigation/README.md).
-- Click the chevron beside Workspaces or Sessions to [switch list modes](../../dsh-workspace-list-toggle/README.md).
-  In **Needs attention**, [sessions with unsent drafts](../../dsh-session-draft/README.md) stay visible.
 - In the flat sidebar list,
   see the [workspace name beside the session title](../../dsh-workspace-title-badge/README.md).
   Right-click a workspace and choose **Default**
@@ -158,3 +159,7 @@ Requires the Web client on DeepSeek Harness `0.2.2-rc.5`.
    to avoid duplicate row IDs.
 3. In **Plugins → Add plugin**, select the bundle directory.
    Restore the saved switch states on the new card.
+
+Sidebar list modes and draft indicators moved to the [List Modular Improvement Plan](../../dsh-atlas-list/README.md).
+Update Workspace Atlas and confirm that both rows have left its card before enabling List Atlas.
+Both rows keep their original IDs, so existing row overrides still match.

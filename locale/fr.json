@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Plan modulaire d’amélioration des espaces de travail",
-    "description": "Changez d’espace de travail et parcourez les fichiers avec aperçu. Le pack propose aussi trois modes de liste dans la barre latérale, des indicateurs de brouillon, des étiquettes à côté du titre des sessions et des presets d’agent par défaut.",
+    "description": "Recherchez des sessions, changez d’espace de travail et parcourez les fichiers avec aperçu. Les étiquettes à côté des titres de session indiquent l’espace de travail. Définissez un preset d’agent par défaut pour chaque espace.",
     "detail": "README.fr.md"
   }
 }

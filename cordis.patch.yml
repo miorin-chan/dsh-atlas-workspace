@@ -5,9 +5,6 @@
     # @miorin/dsh-workspace-switcher
     - id: workspace-switcher
       name: '@miorin/dsh-workspace-switcher'
-    # @miorin/dsh-workspace-file-tree
-    - id: dsh-workspace-file-tree
-      name: '@miorin/dsh-workspace-file-tree'
     # @miorin/dsh-preview-file-navigation
     - id: dsh-preview-file-navigation
       name: '@miorin/dsh-preview-file-navigation'

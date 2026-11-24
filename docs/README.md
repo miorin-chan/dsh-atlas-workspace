@@ -2,8 +2,7 @@
 
 ## 使用
 
-- 按 `Mod+K` [找会话](../../dsh-workspace-switcher/README.zh.md)，按 `Mod+Shift+K` 浏览工作区，
-  可[按目录分组](../../dsh-workspace-file-tree/README.zh.md)。
+- 按 `Mod+K` [找会话](../../dsh-workspace-switcher/README.zh.md)，按 `Mod+Shift+K` 浏览工作区。
   在新会话页点击工作区标签即可切换。
 - 点击左侧会话列表下方的工作区名称，即可[浏览、搜索和预览文件](../../dsh-preview-file-navigation/README.zh.md)。
 - 点击「工作区」或「会话」旁的小箭头[切换列表模式](../../dsh-workspace-list-toggle/README.zh.md)。
@@ -22,7 +21,6 @@
 | 插件 | 作用 | 行 id |
 | --- | --- | --- |
 | `@miorin/dsh-workspace-switcher` | 会话检索、最近会话切换、工作区树与新会话工作区选择 | `workspace-switcher` |
-| `@miorin/dsh-workspace-file-tree` | 切换器的文件目录分组，需启用切换器 | `dsh-workspace-file-tree` |
 | `@miorin/dsh-preview-file-navigation` | 浏览和搜索当前工作目录，在右侧栏打开内置预览 | `dsh-preview-file-navigation` |
 | `@miorin/dsh-workspace-list-toggle` | 左侧栏列表按「全部 → 收起 → 需关注」循环切换 | `dsh-workspace-list-toggle` |
 | `@miorin/dsh-session-draft` | 标记有未发送草稿的会话，并让「需关注」保留它们 | `dsh-session-draft` |
@@ -98,7 +96,7 @@ DSH_HOME="$tmp" dsh plugin --profile test add "$PWD"
 DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
 ```
 
-检查 `schema.json` 的 `x-cordis.diagnostics` 为空，并确认上表的七个行 id 都出现在 `x-cordis.entries`。
+检查 `schema.json` 的 `x-cordis.diagnostics` 为空，并确认上表的六个行 id 都出现在 `x-cordis.entries`。
 这一步使用独立于真实 profile 的临时目录。
 
 ### 真实 profile
@@ -107,7 +105,7 @@ DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
 2. 如果目标 profile 已单独安装任何成员，记下开关状态，再移除独立安装的包，避免行 ID 重复。
 3. 在 **插件 → 添加插件** 选择聚合包目录，然后在新卡片恢复各成员的开关状态。
 
-在插件页确认聚合卡显示七个成员。已有本地链接安装时，重新启用聚合包以载入新成员。
+在插件页确认聚合卡显示六个成员。已有本地链接安装时，重新启用聚合包以应用成员变更。
 
 不要先装聚合包再移除独立 bundle，也不要让两者同时存在：相同行 id 会触发 `duplicate loader entry id`，
 即使其中一行是 disabled。
@@ -132,13 +130,13 @@ DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
 ## 验证记录
 
 生成、一次性 profile、真实 Desktop profile 迁移、schema 和元数据解析的结果见 [verification.md](verification.md)。
-一次性 Web profile 的 **插件** 页已确认聚合卡显示七行，关闭和重开「工作区文件」后，
-侧栏入口相应消失和恢复，其余六行保持开启。
+「工作区文件」加入时，曾在一次性 Web profile 的 **插件** 页确认聚合卡显示当时的七行。
+关闭并重开「工作区文件」后，侧栏入口相应消失和恢复，其余六行保持开启。
 
 ## Usage
 
 - Press `Mod+K` to [find sessions](../../dsh-workspace-switcher/README.md).
-  Use `Mod+Shift+K` to browse workspaces, with [directory grouping](../../dsh-workspace-file-tree/README.md) available.
+  Use `Mod+Shift+K` to browse workspaces.
   On the New Session screen, click the workspace chip to choose a workspace.
 - In the left sidebar, click the workspace name below the session list
   to [browse, search, and preview files](../../dsh-preview-file-navigation/README.md).

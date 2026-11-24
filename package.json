@@ -54,7 +54,6 @@
     "aggregate": {
       "plugins": [
         "@miorin/dsh-workspace-switcher",
-        "@miorin/dsh-workspace-file-tree",
         "@miorin/dsh-preview-file-navigation",
         "@miorin/dsh-workspace-list-toggle",
         "@miorin/dsh-session-draft",
@@ -67,7 +66,6 @@
     "@miorin/dsh-workspace-title-badge": "0.1.0",
     "@miorin/dsh-workspace-default-preset": "0.1.0",
     "@miorin/dsh-workspace-switcher": "0.1.0",
-    "@miorin/dsh-workspace-file-tree": "0.1.0",
     "@miorin/dsh-preview-file-navigation": "0.1.0",
     "@miorin/dsh-workspace-list-toggle": "0.1.0",
     "@miorin/dsh-session-draft": "0.1.0"

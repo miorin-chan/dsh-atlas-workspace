@@ -17,9 +17,6 @@ importers:
       '@miorin/dsh-workspace-default-preset':
         specifier: 0.1.0
         version: 0.1.0
-      '@miorin/dsh-workspace-file-tree':
-        specifier: 0.1.0
-        version: 0.1.0
       '@miorin/dsh-workspace-list-toggle':
         specifier: 0.1.0
         version: 0.1.0
@@ -207,10 +204,6 @@ packages:
     resolution: {integrity: sha512-EcQnL72sW6UITd63RNtu+olN1vLqlENGK/YJ1mep+rp1BNWUD04mWRAZZzoEDdX/UrCg0IOtf7aF8TINfmD46g==}
     engines: {dsh: '>=0.2.2-rc.3'}
 
-  '@miorin/dsh-workspace-file-tree@0.1.0':
-    resolution: {integrity: sha512-kjsKAwEAYQT+WhbxEK+z4qBd/+9L1/C7z1SKzvMt8bySnqgFGBs2K3AdmmzJK5egGRPOhZHjXGDxhW8nqP0F9g==}
-    engines: {dsh: '>=0.2.2-rc.3'}
-
   '@miorin/dsh-workspace-list-toggle@0.1.0':
     resolution: {integrity: sha512-AfC9swJYs++eoYYlnr5ZurlBU9JVDj+PTpfm8BSmUpkHP38Ccenr3j0+q+3XhPzzKy+EJJcBlsnUKXBPDHM0AQ==}
     engines: {dsh: '>=0.2.2-rc.5'}
@@ -318,8 +311,6 @@ snapshots:
   '@miorin/dsh-session-draft@0.1.0': {}
 
   '@miorin/dsh-workspace-default-preset@0.1.0': {}
-
-  '@miorin/dsh-workspace-file-tree@0.1.0': {}
 
   '@miorin/dsh-workspace-list-toggle@0.1.0': {}
 

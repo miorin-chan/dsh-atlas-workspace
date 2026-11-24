@@ -2,13 +2,11 @@
 # then install its pinned version and run `npm run build` and `npm run check`.
 name: '@miorin/dsh-atlas-workspace'
 version: 0.1.0
-description: 'Small workspace enhancements: switch, directory grouping, file browsing, sidebar modes, drafts, badge, defaults.'
+description: 'Workspace switching, file browsing, sidebar modes, drafts, title badges, and default Agent presets.'
 engines:
   dsh: '0.2.2-rc.5'
 plugins:
   - name: '@miorin/dsh-workspace-switcher'
-    spec: 0.1.0
-  - name: '@miorin/dsh-workspace-file-tree'
     spec: 0.1.0
   - name: '@miorin/dsh-preview-file-navigation'
     spec: 0.1.0

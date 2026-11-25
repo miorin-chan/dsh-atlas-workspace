@@ -45,8 +45,8 @@
     "build": "node ../../tools/dsh-aggregate/src/cli.mts generate .",
     "prepare": "node --input-type=module -e \"import { existsSync } from 'node:fs'; import { execFileSync } from 'node:child_process'; const cli = '../../tools/dsh-aggregate/src/cli.mts'; if (existsSync(cli)) execFileSync(process.execPath, [cli, 'generate', '.'], { stdio: 'inherit' })\" 1>&2",
     "test": "npm run build && npm run check",
-    "check": "node ../../tools/dsh-aggregate/src/cli.mts check .",
-    "prepublishOnly": "node ../../tools/dsh-aggregate/src/cli.mts verify-release ."
+    "check": "node --input-type=module -e \"import { existsSync, readFileSync } from 'node:fs'; import { execFileSync } from 'node:child_process'; const cli = '../../tools/dsh-aggregate/src/cli.mts'; if (existsSync(cli)) { execFileSync(process.execPath, [cli, 'check', '.'], { stdio: 'inherit' }); } else { for (const f of ['index.js', 'client.js', 'cordis.patch.yml', 'aggregate.yml', 'package.json']) { if (!existsSync(f)) throw new Error('missing ' + f); } JSON.parse(readFileSync('package.json', 'utf8')); }\"",
+    "prepublishOnly": "node --input-type=module -e \"import { existsSync, readFileSync } from 'node:fs'; import { execFileSync } from 'node:child_process'; const cli = '../../tools/dsh-aggregate/src/cli.mts'; if (existsSync(cli)) { execFileSync(process.execPath, [cli, 'verify-release', '.'], { stdio: 'inherit' }); } else { for (const f of ['index.js', 'client.js', 'cordis.patch.yml', 'aggregate.yml', 'package.json']) { if (!existsSync(f)) throw new Error('missing ' + f); } const pkg = JSON.parse(readFileSync('package.json', 'utf8')); if (pkg.private === true) throw new Error('package.json has private: true'); for (const [k, v] of Object.entries(pkg.dependencies ?? {})) { if (typeof v === 'string' && (v.startsWith('link:') || v.startsWith('file:'))) throw new Error('unpinned dependency ' + k + '=' + v); } if (/^\\s+spec:\\s*(?:link:|file:)/m.test(readFileSync('aggregate.yml', 'utf8'))) throw new Error('unpinned spec in aggregate.yml'); }\""
   },
   "dsh": {
     "bundle": {
@@ -87,5 +87,13 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miorin-chan/dsh-atlas-workspace.git"
+  },
+  "homepage": "https://github.com/miorin-chan/dsh-atlas-workspace#readme",
+  "bugs": {
+    "url": "https://github.com/miorin-chan/dsh-atlas-workspace/issues"
   }
 }

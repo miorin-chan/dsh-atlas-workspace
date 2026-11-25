@@ -108,10 +108,10 @@ DSH_HOME="$tmp" dsh --profile test --dump-config-schema > "$tmp/schema.json"
 
 ### 从旧版工作区 Atlas 迁移
 
-侧栏列表模式（`dsh-workspace-list-toggle`）和会话草稿提示（`dsh-session-draft`）已迁入
-[列表模块化改良计划](../../dsh-atlas-list/README.zh.md)。
+侧栏列表模式（现为 `dsh-session-list-toggle`，原为 `dsh-workspace-list-toggle`）和会话草稿提示
+（`dsh-session-draft`）已迁入 [列表模块化改良计划](../../dsh-atlas-list/README.zh.md)。
 先更新工作区 Atlas，并确认工作区卡已移除这两个成员，再启用列表 Atlas。
-两个插件使用原有行 id，已有的逐行覆盖仍按行 id 匹配。
+会话草稿保留原行 ID。列表三态开关改名后，如果已有旧行 ID 的覆盖，请同步改成 `dsh-session-list-toggle`。
 
 ## 卡片元数据
 

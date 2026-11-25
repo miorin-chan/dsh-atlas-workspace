@@ -1,5 +1,5 @@
 node_modules/
 .DS_Store
 *.log
-/scripts/dsh-aggregate.mjs
-/scripts/dsh-aggregate.mjs.*.tmp
+/index.js
+/client.js

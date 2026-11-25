@@ -14,3 +14,6 @@
     # @miorin/dsh-workspace-default-preset
     - id: workspace-default-preset
       name: '@miorin/dsh-workspace-default-preset'
+    # @miorin/dsh-atlas-workspace (aggregate runtime)
+    - id: dsh-atlas-workspace
+      name: "@miorin/dsh-atlas-workspace"

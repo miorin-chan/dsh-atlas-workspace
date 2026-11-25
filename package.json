@@ -60,7 +60,13 @@
         "@miorin/dsh-preview-file-navigation",
         "@miorin/dsh-workspace-title-badge",
         "@miorin/dsh-workspace-default-preset"
-      ]
+      ],
+      "defaults": {
+        "@miorin/dsh-workspace-switcher": true,
+        "@miorin/dsh-preview-file-navigation": true,
+        "@miorin/dsh-workspace-title-badge": true,
+        "@miorin/dsh-workspace-default-preset": true
+      }
     },
     "client": {
       "platform": "web",

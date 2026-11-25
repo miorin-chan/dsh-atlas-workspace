@@ -8,9 +8,13 @@ engines:
 plugins:
   - name: '@miorin/dsh-workspace-switcher'
     spec: 0.1.0
+    enabled: true
   - name: '@miorin/dsh-preview-file-navigation'
     spec: 0.1.0
+    enabled: true
   - name: '@miorin/dsh-workspace-title-badge'
     spec: 0.1.0
+    enabled: true
   - name: '@miorin/dsh-workspace-default-preset'
     spec: 0.1.0
+    enabled: true

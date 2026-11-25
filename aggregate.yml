@@ -4,7 +4,7 @@ name: '@miorin/dsh-atlas-workspace'
 version: 0.1.0
 description: 'Workspace switching, file browsing, title badges, and default Agent presets.'
 engines:
-  dsh: '0.2.2-rc.5'
+  dsh: '>=0.2.2-rc.5'
 plugins:
   - name: '@miorin/dsh-workspace-switcher'
     spec: 0.1.0

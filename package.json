@@ -36,7 +36,7 @@
     "docs/verification.md"
   ],
   "engines": {
-    "dsh": "0.2.2-rc.5"
+    "dsh": ">=0.2.2-rc.5"
   },
   "scripts": {
     "build:tools": "node --input-type=module -e \"import { existsSync } from 'node:fs'; const entry = './scripts/aggregate/build.mts'; if (existsSync(entry)) await import(entry)\" --",

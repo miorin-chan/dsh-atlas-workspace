@@ -1,8 +1,9 @@
 {
   "name": "@miorin/dsh-atlas-workspace",
   "version": "0.2.0",
+  "private": false,
   "license": "MIT",
-  "description": "A modular program for differentiable, continuous improvement of the workspace experience.",
+  "description": "Workspace switching, file browsing, title badges, and default Agent presets.",
   "type": "module",
   "keywords": [
     "deepseek-harness",
@@ -39,7 +40,8 @@
     "docs/verification.md"
   ],
   "engines": {
-    "dsh": ">=0.2.2-rc.5"
+    "dsh": ">=0.2.2-rc.5",
+    "node": "^22.18.0 || >=24.11.0"
   },
   "scripts": {
     "build": "node ../../tools/dsh-aggregate/src/cli.mts generate .",

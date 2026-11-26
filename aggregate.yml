@@ -2,9 +2,12 @@
 # then install its pinned version and run `npm run build` and `npm run check`.
 name: '@miorin/dsh-atlas-workspace'
 version: 0.2.0
+private: false
 description: 'Workspace switching, file browsing, title badges, and default Agent presets.'
+license: MIT
 engines:
   dsh: '>=0.2.2-rc.5'
+  node: '^22.18.0 || >=24.11.0'
 plugins:
   - name: '@miorin/dsh-workspace-switcher'
     spec: 0.1.1

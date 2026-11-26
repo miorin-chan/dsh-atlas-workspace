@@ -115,8 +115,11 @@ async function toggleMemberRow(manager, entryId, enabled) {
     return "failed";
   }
 }
+function escapeCssAttrValue(value) {
+  return value.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+}
 function buildRawRowsHideStyle(bundleName) {
-  const escaped = bundleName.replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+  const escaped = escapeCssAttrValue(bundleName);
   return `[data-plugin-detail="${escaped}"] [data-plugin-rows]:not(:has([data-state="failed"], [data-plugin-runtime-error], [data-package-meta-error])) {
   display: none;
 }`;
@@ -381,37 +384,39 @@ function createAggregateRestoreController(ctx, bundleName, defaults, createActio
 }
 
 // src/runtime/client.ts
-var MEMBER_LIST_STYLES = `
-  .dsh-aggregate-members-root {
+function buildMemberListStyles(bundleName) {
+  const scope = `[data-dsh-aggregate-config="${escapeCssAttrValue(bundleName)}"]`;
+  return `
+  .dsh-aggregate-members-root${scope} {
     display: grid;
     min-inline-size: 0;
   }
-  .dsh-aggregate-member-list {
+  ${scope} .dsh-aggregate-member-list {
     list-style: none;
     margin: 0;
     padding: 0;
     display: grid;
   }
-  .dsh-aggregate-member-row {
+  ${scope} .dsh-aggregate-member-row {
     display: grid;
     gap: 0;
     padding: 8px 0;
     border-bottom: 1px solid var(--dsw-alias-border-l1);
   }
-  .dsh-aggregate-member-row:first-child {
+  ${scope} .dsh-aggregate-member-row:first-child {
     padding-top: 4px;
   }
-  .dsh-aggregate-member-row:last-child {
+  ${scope} .dsh-aggregate-member-row:last-child {
     padding-bottom: 4px;
     border-bottom: 0;
   }
-  .dsh-aggregate-member-main {
+  ${scope} .dsh-aggregate-member-main {
     display: grid;
     grid-template-columns: 26px minmax(0, 1fr) auto;
     align-items: center;
     gap: 8px 10px;
   }
-  .dsh-aggregate-member-icon {
+  ${scope} .dsh-aggregate-member-icon {
     box-sizing: border-box;
     display: grid;
     place-items: center;
@@ -425,25 +430,25 @@ var MEMBER_LIST_STYLES = `
     color: var(--dsw-alias-label-secondary);
     transition: opacity 120ms ease;
   }
-  .dsh-aggregate-member-icon > img {
+  ${scope} .dsh-aggregate-member-icon > img {
     inline-size: 15px;
     block-size: 15px;
     object-fit: contain;
     border-radius: 3px;
   }
-  .dsh-aggregate-member-icon-btn {
+  ${scope} .dsh-aggregate-member-icon-btn {
     cursor: pointer;
     font: inherit;
   }
-  .dsh-aggregate-member-copy {
+  ${scope} .dsh-aggregate-member-copy {
     min-inline-size: 0;
     transition: opacity 120ms ease;
   }
-  .dsh-aggregate-member-row[data-state="off"] .dsh-aggregate-member-icon,
-  .dsh-aggregate-member-row[data-state="off"] .dsh-aggregate-member-copy {
+  ${scope} .dsh-aggregate-member-row[data-state="off"] .dsh-aggregate-member-icon,
+  ${scope} .dsh-aggregate-member-row[data-state="off"] .dsh-aggregate-member-copy {
     opacity: 0.56;
   }
-  .dsh-aggregate-member-head {
+  ${scope} .dsh-aggregate-member-head {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -454,7 +459,7 @@ var MEMBER_LIST_STYLES = `
     color: var(--dsw-alias-label-primary);
     overflow-wrap: anywhere;
   }
-  .dsh-aggregate-member-toggle {
+  ${scope} .dsh-aggregate-member-toggle {
     display: inline-flex;
     align-items: center;
     gap: 4px;
@@ -469,40 +474,40 @@ var MEMBER_LIST_STYLES = `
     text-align: left;
     cursor: pointer;
   }
-  .dsh-aggregate-chevron {
+  ${scope} .dsh-aggregate-chevron {
     flex-shrink: 0;
     color: var(--dsw-alias-label-secondary);
     transition: transform 140ms ease;
   }
-  [aria-expanded="true"] > .dsh-aggregate-chevron {
+  ${scope} [aria-expanded="true"] > .dsh-aggregate-chevron {
     transform: rotate(90deg);
   }
   @media (hover: hover) {
-    .dsh-aggregate-member-icon-btn:hover {
+    ${scope} .dsh-aggregate-member-icon-btn:hover {
       border-color: var(--dsw-alias-border-l2);
       background: var(--dsw-alias-interactive-bg-hover);
     }
-    .dsh-aggregate-member-toggle:hover {
+    ${scope} .dsh-aggregate-member-toggle:hover {
       background: var(--dsw-alias-interactive-bg-hover);
     }
-    .dsh-aggregate-member-row[data-state="off"]:hover .dsh-aggregate-member-icon,
-    .dsh-aggregate-member-row[data-state="off"]:hover .dsh-aggregate-member-copy {
+    ${scope} .dsh-aggregate-member-row[data-state="off"]:hover .dsh-aggregate-member-icon,
+    ${scope} .dsh-aggregate-member-row[data-state="off"]:hover .dsh-aggregate-member-copy {
       opacity: 1;
     }
   }
-  .dsh-aggregate-member-settings {
+  ${scope} .dsh-aggregate-member-settings {
     margin: 6px 0 2px 12px;
     padding: 2px 0 4px 16px;
     border-left: 1px solid var(--dsw-alias-border-l1);
     min-inline-size: 0;
   }
   @media (max-width: 520px) {
-    .dsh-aggregate-member-settings {
+    ${scope} .dsh-aggregate-member-settings {
       margin-left: 6px;
       padding-left: 12px;
     }
   }
-  .dsh-aggregate-member-failed-tag {
+  ${scope} .dsh-aggregate-member-failed-tag {
     display: inline-flex;
     align-items: center;
     padding: 1px 6px;
@@ -513,7 +518,7 @@ var MEMBER_LIST_STYLES = `
     color: var(--dsw-alias-state-error-primary);
     background: color-mix(in srgb, var(--dsw-alias-state-error-primary) 12%, transparent);
   }
-  .dsh-aggregate-member-desc {
+  ${scope} .dsh-aggregate-member-desc {
     margin: 2px 0 0;
     font-size: 12px;
     line-height: 17px;
@@ -522,35 +527,38 @@ var MEMBER_LIST_STYLES = `
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .dsh-aggregate-member-status {
+  ${scope} .dsh-aggregate-member-status {
     margin: 4px 0 0;
     font-size: 12px;
     line-height: 16px;
     color: var(--dsw-alias-label-secondary);
     overflow-wrap: anywhere;
   }
-  .dsh-aggregate-member-status[data-error] {
+  ${scope} .dsh-aggregate-member-status[data-error] {
     color: var(--dsw-alias-state-error-primary);
   }
-  .dsh-aggregate-member-toggle:focus-visible {
-    outline: var(--dsw-focus-ring-width, 2px) solid var(--dsw-focus-ring-color, var(--dsw-alias-brand-primary));
+  ${scope} .dsh-aggregate-member-toggle:focus-visible {
+    outline: var(--dsw-focus-ring-width, 2px) solid var(--dsw-focus-ring-color, var(--dsw-alias-state-business-primary));
     outline-offset: 2px;
   }
   @media (prefers-reduced-motion: reduce) {
-    .dsh-aggregate-member-icon,
-    .dsh-aggregate-member-copy,
-    .dsh-aggregate-chevron {
+    ${scope} .dsh-aggregate-member-icon,
+    ${scope} .dsh-aggregate-member-copy,
+    ${scope} .dsh-aggregate-chevron {
       transition: none;
     }
   }
 `;
-var OUTLET_STYLES = `
-  .dsh-aggregate-detail-panel {
+}
+function buildOutletStyles(bundleName) {
+  const scope = `[data-dsh-aggregate-bundle="${escapeCssAttrValue(bundleName)}"]`;
+  return `
+  .dsh-aggregate-detail-panel${scope} {
     display: grid;
     gap: 10px;
     min-inline-size: 0;
   }
-  .dsh-aggregate-list-head {
+  ${scope} .dsh-aggregate-list-head {
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -558,14 +566,14 @@ var OUTLET_STYLES = `
     flex-wrap: wrap;
   }
   /* Matches .sectionTitle / .sectionCount in @deepseek-ai/dsh-client-ui-plugin-manager@0.2.2-rc.5. */
-  .dsh-aggregate-list-title {
+  ${scope} .dsh-aggregate-list-title {
     margin: 0;
     font-size: 14px;
     font-weight: 500;
     line-height: 20px;
     color: var(--dsw-alias-label-primary);
   }
-  .dsh-aggregate-list-count {
+  ${scope} .dsh-aggregate-list-count {
     display: inline-flex;
     align-items: center;
     height: 18px;
@@ -578,7 +586,7 @@ var OUTLET_STYLES = `
     color: var(--dsw-alias-label-secondary);
     background: color-mix(in srgb, var(--dsw-alias-label-primary) 6%, transparent);
   }
-  .dsh-aggregate-expand-all {
+  ${scope} .dsh-aggregate-expand-all {
     display: inline-grid;
     place-items: center;
     inline-size: 24px;
@@ -594,26 +602,30 @@ var OUTLET_STYLES = `
     transition: color 120ms ease, background-color 120ms ease;
   }
   @media (hover: hover) {
-    .dsh-aggregate-expand-all:hover {
+    ${scope} .dsh-aggregate-expand-all:hover {
+      color: var(--dsw-alias-label-primary);
+      background: var(--dsw-alias-interactive-bg-hover);
+    }
+    ${scope} .dsh-aggregate-raw-toggle:hover {
       color: var(--dsw-alias-label-primary);
       background: var(--dsw-alias-interactive-bg-hover);
     }
   }
-  .dsh-aggregate-expand-all:active {
+  ${scope} .dsh-aggregate-expand-all:active {
     color: var(--dsw-alias-label-primary);
     background: var(--dsw-alias-interactive-bg-active);
   }
-  .dsh-aggregate-expand-all:focus-visible {
-    outline: var(--dsw-focus-ring-width, 2px) solid var(--dsw-focus-ring-color, var(--dsw-alias-brand-primary));
+  ${scope} .dsh-aggregate-expand-all:focus-visible {
+    outline: var(--dsw-focus-ring-width, 2px) solid var(--dsw-focus-ring-color, var(--dsw-alias-state-business-primary));
     outline-offset: 2px;
   }
-  .dsh-aggregate-raw-footer {
+  ${scope} .dsh-aggregate-raw-footer {
     display: flex;
     justify-content: flex-start;
     padding-top: 8px;
     border-top: 0.5px solid var(--dsw-alias-border-l1);
   }
-  .dsh-aggregate-raw-toggle {
+  ${scope} .dsh-aggregate-raw-toggle {
     display: inline-flex;
     align-items: center;
     gap: 5px;
@@ -627,115 +639,38 @@ var OUTLET_STYLES = `
     line-height: 18px;
     cursor: pointer;
   }
-  .dsh-aggregate-raw-toggle:hover {
-    color: var(--dsw-alias-label-primary);
-    background: var(--dsw-alias-interactive-bg-hover);
-  }
-  .dsh-aggregate-raw-chevron {
+  ${scope} .dsh-aggregate-raw-chevron {
     flex-shrink: 0;
     transition: transform 140ms ease;
   }
-  .dsh-aggregate-raw-toggle[aria-expanded="true"] .dsh-aggregate-raw-chevron {
+  ${scope} .dsh-aggregate-raw-toggle[aria-expanded="true"] .dsh-aggregate-raw-chevron {
     transform: rotate(90deg);
   }
-  .dsh-aggregate-raw-toggle:focus-visible {
-    outline: var(--dsw-focus-ring-width, 2px) solid var(--dsw-focus-ring-color, var(--dsw-alias-brand-primary));
+  ${scope} .dsh-aggregate-raw-toggle:focus-visible {
+    outline: var(--dsw-focus-ring-width, 2px) solid var(--dsw-focus-ring-color, var(--dsw-alias-state-business-primary));
     outline-offset: 2px;
   }
   @media (prefers-reduced-motion: reduce) {
-    .dsh-aggregate-expand-all,
-    .dsh-aggregate-raw-chevron {
+    ${scope} .dsh-aggregate-expand-all,
+    ${scope} .dsh-aggregate-raw-chevron {
       transition: none;
     }
   }
 `;
-var RESTORE_STYLES = `
-  .dsh-aggregate-restore-btn {
-    min-height: 28px;
-    padding: 3px 9px;
-    border-radius: 8px;
-    cursor: pointer;
-    font: inherit;
-    font-size: 12px;
-    white-space: nowrap;
-    color: var(--dsw-alias-label-primary);
-    background: transparent;
-    border: 1px solid var(--dsw-alias-border-l3);
-  }
-  .dsh-aggregate-restore-btn:enabled:hover {
-    background: var(--dsw-alias-interactive-bg-hover);
-  }
-  .dsh-aggregate-restore-btn:disabled {
-    cursor: default;
-    opacity: 0.55;
-  }
-  .dsh-aggregate-restore-btn:focus-visible,
-  .dsh-aggregate-restore-dialog button:focus-visible {
-    outline: var(--dsw-focus-ring-width, 2px) solid var(--dsw-focus-ring-color, var(--dsw-alias-brand-primary));
-    outline-offset: 2px;
-  }
-  .dsh-aggregate-restore-status {
+}
+function buildRestoreStyles(bundleName) {
+  const scope = `[data-dsh-aggregate-restore-status="${escapeCssAttrValue(bundleName)}"]`;
+  return `
+  ${scope} {
     font-size: 12px;
     line-height: 16px;
     color: var(--dsw-alias-label-secondary);
   }
-  .dsh-aggregate-restore-status[data-error] {
+  ${scope}[data-error] {
     color: var(--dsw-alias-state-error-primary);
   }
-  .dsh-aggregate-restore-dialog {
-    max-inline-size: min(25rem, calc(100% - 2rem));
-    box-sizing: border-box;
-    padding: 20px;
-    border: 1px solid var(--dsw-alias-border-l2);
-    border-radius: var(--dsw-radius-md);
-    background: var(--dsw-alias-bg-layer-1);
-    color: var(--dsw-alias-label-primary);
-    font: inherit;
-    text-align: left;
-    white-space: normal;
-  }
-  .dsh-aggregate-restore-dialog::backdrop {
-    background: color-mix(in srgb, var(--dsw-alias-label-primary) 30%, transparent);
-  }
-  .dsh-aggregate-restore-dialog h4,
-  .dsh-aggregate-restore-dialog p {
-    margin: 0 0 8px;
-  }
-  .dsh-aggregate-restore-dialog p {
-    font-size: 13px;
-    line-height: 18px;
-    color: var(--dsw-alias-label-secondary);
-  }
-  .dsh-aggregate-restore-dialog-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 8px;
-    margin-top: 12px;
-  }
-  .dsh-aggregate-restore-dialog-btn {
-    min-height: 28px;
-    padding: 4px 10px;
-    border-radius: 6px;
-    border: 1px solid var(--dsw-alias-border-l2);
-    background: var(--dsw-alias-bg-layer-1);
-    color: var(--dsw-alias-label-primary);
-    font: inherit;
-    font-size: 13px;
-    cursor: pointer;
-  }
-  .dsh-aggregate-restore-dialog-btn:enabled:hover {
-    background: var(--dsw-alias-interactive-bg-hover);
-  }
-  .dsh-aggregate-restore-dialog-btn-primary {
-    background: var(--dsw-alias-brand-primary);
-    border-color: var(--dsw-alias-brand-primary);
-    color: var(--dsw-alias-label-primary-foreground);
-  }
-  .dsh-aggregate-restore-dialog-btn-primary:enabled:hover {
-    opacity: 0.92;
-    background: var(--dsw-alias-brand-primary);
-  }
 `;
+}
 var RESTORE_LABELS = {
   en: {
     restoreButton: "Restore defaults",
@@ -744,6 +679,7 @@ var RESTORE_LABELS = {
     confirmBody: "Restore {count} changed sub-plugin switch(es) to this bundle\u2019s defaults? Saved plugin settings are kept.",
     confirmAction: "Restore defaults",
     cancelAction: "Cancel",
+    closeAction: "Close",
     alreadyDefaultTitle: "All sub-plugins match defaults",
     restartRequired: "Restart required to apply defaults",
     restoreFailed: "Could not restore all defaults"
@@ -755,6 +691,7 @@ var RESTORE_LABELS = {
     confirmBody: "\u5C06\u628A {count} \u9879\u5DF2\u6539\u52A8\u7684\u5B50\u63D2\u4EF6\u5F00\u5173\u6062\u590D\u4E3A\u672C\u805A\u5408\u5305\u7684\u9ED8\u8BA4\u72B6\u6001\uFF0C\u5404\u5B50\u63D2\u4EF6\u5DF2\u4FDD\u5B58\u7684\u8BBE\u7F6E\u4F1A\u4FDD\u7559\u3002",
     confirmAction: "\u6062\u590D\u9ED8\u8BA4",
     cancelAction: "\u53D6\u6D88",
+    closeAction: "\u5173\u95ED",
     alreadyDefaultTitle: "\u6240\u6709\u5B50\u63D2\u4EF6\u5747\u5DF2\u662F\u9ED8\u8BA4\u72B6\u6001",
     restartRequired: "\u9700\u8981\u91CD\u542F\u4EE5\u5B8C\u6210\u751F\u6548",
     restoreFailed: "\u672A\u80FD\u6062\u590D\u5168\u90E8\u9ED8\u8BA4\u5F00\u5173"
@@ -766,6 +703,7 @@ var RESTORE_LABELS = {
     confirmBody: "\u5909\u66F4\u3055\u308C\u305F {count} \u4EF6\u306E\u30B5\u30D6\u30D7\u30E9\u30B0\u30A4\u30F3\u306E\u30B9\u30A4\u30C3\u30C1\u3092\u3053\u306E\u30D0\u30F3\u30C9\u30EB\u306E\u65E2\u5B9A\u72B6\u614B\u306B\u623B\u3057\u307E\u3059\u3002\u4FDD\u5B58\u3055\u308C\u305F\u8A2D\u5B9A\u306F\u7DAD\u6301\u3055\u308C\u307E\u3059\u3002",
     confirmAction: "\u30C7\u30D5\u30A9\u30EB\u30C8\u306B\u623B\u3059",
     cancelAction: "\u30AD\u30E3\u30F3\u30BB\u30EB",
+    closeAction: "\u9589\u3058\u308B",
     alreadyDefaultTitle: "\u3059\u3079\u3066\u306E\u30B5\u30D6\u30D7\u30E9\u30B0\u30A4\u30F3\u306F\u65E2\u5B9A\u72B6\u614B\u3067\u3059",
     restartRequired: "\u53CD\u6620\u306B\u306F\u518D\u8D77\u52D5\u304C\u5FC5\u8981\u3067\u3059",
     restoreFailed: "\u3059\u3079\u3066\u306E\u65E2\u5B9A\u72B6\u614B\u3092\u5FA9\u5143\u3067\u304D\u307E\u305B\u3093\u3067\u3057\u305F"
@@ -777,6 +715,7 @@ var RESTORE_LABELS = {
     confirmBody: "{count} ge\xE4nderte Unterplugin-Schalter auf die Standardwerte dieses Pakets zur\xFCcksetzen? Gespeicherte Einstellungen bleiben erhalten.",
     confirmAction: "Standard wiederherstellen",
     cancelAction: "Abbrechen",
+    closeAction: "Schlie\xDFen",
     alreadyDefaultTitle: "Alle Unterplugins entsprechen den Standardwerten",
     restartRequired: "Neustart erforderlich, um \xC4nderungen anzuwenden",
     restoreFailed: "Nicht alle Standardwerte konnten wiederhergestellt werden"
@@ -788,6 +727,7 @@ var RESTORE_LABELS = {
     confirmBody: "Se restaurar\xE1n {count} interruptores modificados a los valores predeterminados del paquete. La configuraci\xF3n guardada se conservar\xE1.",
     confirmAction: "Restaurar valores predeterminados",
     cancelAction: "Cancelar",
+    closeAction: "Cerrar",
     alreadyDefaultTitle: "Todos los subcomplementos coinciden con los valores predeterminados",
     restartRequired: "Se requiere reiniciar para aplicar los cambios",
     restoreFailed: "No se pudieron restaurar todos los valores predeterminados"
@@ -799,6 +739,7 @@ var RESTORE_LABELS = {
     confirmBody: "R\xE9tablir {count} interrupteur(s) modifi\xE9(s) aux valeurs par d\xE9faut de ce paquet ? Les param\xE8tres enregistr\xE9s sont conserv\xE9s.",
     confirmAction: "R\xE9tablir les valeurs par d\xE9faut",
     cancelAction: "Annuler",
+    closeAction: "Fermer",
     alreadyDefaultTitle: "Tous les sous-plugins correspondent aux valeurs par d\xE9faut",
     restartRequired: "Red\xE9marrage requis pour appliquer les modifications",
     restoreFailed: "Impossible de r\xE9tablir toutes les valeurs par d\xE9faut"
@@ -810,6 +751,7 @@ var RESTORE_LABELS = {
     confirmBody: "Restaurar {count} interruptor(es) alterado(s) para os padr\xF5es deste pacote? As configura\xE7\xF5es salvas ser\xE3o mantidas.",
     confirmAction: "Restaurar padr\xF5es",
     cancelAction: "Cancelar",
+    closeAction: "Fechar",
     alreadyDefaultTitle: "Todos os subplugins est\xE3o no padr\xE3o",
     restartRequired: "Reinicializa\xE7\xE3o necess\xE1ria para aplicar",
     restoreFailed: "N\xE3o foi poss\xEDvel restaurar todos os padr\xF5es"
@@ -821,6 +763,7 @@ var RESTORE_LABELS = {
     confirmBody: "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C {count} \u0438\u0437\u043C\u0435\u043D\u0451\u043D\u043D\u044B\u0445 \u043F\u0435\u0440\u0435\u043A\u043B\u044E\u0447\u0430\u0442\u0435\u043B\u0435\u0439 \u0434\u043E \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u0439 \u043F\u043E \u0443\u043C\u043E\u043B\u0447\u0430\u043D\u0438\u044E? \u0421\u043E\u0445\u0440\u0430\u043D\u0451\u043D\u043D\u044B\u0435 \u043D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438 \u043F\u043B\u0430\u0433\u0438\u043D\u043E\u0432 \u0441\u043E\u0445\u0440\u0430\u043D\u044F\u0442\u0441\u044F.",
     confirmAction: "\u0421\u0431\u0440\u043E\u0441\u0438\u0442\u044C \u043F\u043E \u0443\u043C\u043E\u043B\u0447\u0430\u043D\u0438\u044E",
     cancelAction: "\u041E\u0442\u043C\u0435\u043D\u0430",
+    closeAction: "\u0417\u0430\u043A\u0440\u044B\u0442\u044C",
     alreadyDefaultTitle: "\u0412\u0441\u0435 \u043F\u043E\u0434\u043F\u043B\u0430\u0433\u0438\u043D\u044B \u0441\u043E\u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044E\u0442 \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u044F\u043C \u043F\u043E \u0443\u043C\u043E\u043B\u0447\u0430\u043D\u0438\u044E",
     restartRequired: "\u0422\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F \u043F\u0435\u0440\u0435\u0437\u0430\u043F\u0443\u0441\u043A \u0434\u043B\u044F \u043F\u0440\u0438\u043C\u0435\u043D\u0435\u043D\u0438\u044F \u0438\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u0439",
     restoreFailed: "\u041D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u0432\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C \u0432\u0441\u0435 \u0437\u043D\u0430\u0447\u0435\u043D\u0438\u044F \u043F\u043E \u0443\u043C\u043E\u043B\u0447\u0430\u043D\u0438\u044E"
@@ -1157,7 +1100,7 @@ function createAggregateSettingsRuntime(ctx, bundleName, members) {
         return (0, import_react.createElement)(
           "div",
           { className: "dsh-aggregate-members-root", "data-dsh-aggregate-config": bundleName },
-          (0, import_react.createElement)("style", null, MEMBER_LIST_STYLES),
+          (0, import_react.createElement)("style", null, buildMemberListStyles(bundleName)),
           !loaded && items.length === 0 ? (0, import_react.createElement)("p", { className: "dsh-aggregate-member-status", role: "status" }, labels.loadingMembers) : items.length === 0 ? (0, import_react.createElement)("p", { className: "dsh-aggregate-member-status", role: "status" }, labels.emptyMembers) : (0, import_react.createElement)(
             "ul",
             {
@@ -1315,7 +1258,7 @@ function createAggregateSettingsRuntime(ctx, bundleName, members) {
         return (0, import_react.createElement)(
           "div",
           { className: "dsh-aggregate-detail-panel", "data-dsh-aggregate-bundle": bundleName },
-          (0, import_react.createElement)("style", null, OUTLET_STYLES),
+          (0, import_react.createElement)("style", null, buildOutletStyles(bundleName)),
           !showRawRows ? (0, import_react.createElement)("style", { "data-dsh-aggregate-hide-rows": bundleName }, buildRawRowsHideStyle(bundleName)) : null,
           (0, import_react.createElement)(
             "div",
@@ -1370,8 +1313,7 @@ function createAggregateRestoreRuntime(ctx, bundleName, defaults) {
       const localeSnapshot = useActiveLocaleSnapshot(ctx);
       const [working, setWorking] = (0, import_react.useState)(false);
       const [notice, setNotice] = (0, import_react.useState)(void 0);
-      const dialogRef = (0, import_react.useRef)(null);
-      const cancelRef = (0, import_react.useRef)(null);
+      const [confirmOpen, setConfirmOpen] = (0, import_react.useState)(false);
       const subject = props.subject;
       const activeBundle = subject?.kind === "bundle" && subject.pkg.name === bundleName && subject.pkg.enabled ? subject.pkg : void 0;
       const diffs = activeBundle ? computeRestoreDiff(activeBundle.rows, defaults) : [];
@@ -1380,19 +1322,22 @@ function createAggregateRestoreRuntime(ctx, bundleName, defaults) {
           setNotice(void 0);
         }
       }, [diffs.length, notice]);
+      (0, import_react.useEffect)(() => {
+        if (diffs.length === 0 && confirmOpen) {
+          setConfirmOpen(false);
+        }
+      }, [diffs.length, confirmOpen]);
       if (!activeBundle) return null;
       const labels = resolveLocaleEntry(RESTORE_LABELS, localeSnapshot.active);
       const canRestore = canSetPlugin && canListBundles;
       const disabled = working || !canRestore || diffs.length === 0;
-      const dialogId = `dsh-aggregate-restore-${bundleName.replace(/[^a-zA-Z0-9_-]/g, "-")}`;
       const handleOpenDialog = () => {
         if (disabled) return;
         setNotice(void 0);
-        dialogRef.current?.showModal();
-        cancelRef.current?.focus();
+        setConfirmOpen(true);
       };
       const handleConfirm = async () => {
-        dialogRef.current?.close();
+        setConfirmOpen(false);
         if (working || !canRestore) return;
         setWorking(true);
         setNotice(void 0);
@@ -1410,21 +1355,23 @@ function createAggregateRestoreRuntime(ctx, bundleName, defaults) {
       return (0, import_react.createElement)(
         import_react.Fragment,
         null,
-        (0, import_react.createElement)("style", null, RESTORE_STYLES),
+        (0, import_react.createElement)("style", null, buildRestoreStyles(bundleName)),
         notice !== void 0 ? (0, import_react.createElement)(
           "span",
           {
             className: "dsh-aggregate-restore-status",
+            "data-dsh-aggregate-restore-status": bundleName,
             role: "status",
             ...notice === "error" ? { "data-error": "" } : {}
           },
           notice === "restart-required" ? labels.restartRequired : labels.restoreFailed
         ) : null,
         (0, import_react.createElement)(
-          "button",
+          import_dsh_client_ui_primitives.Button,
           {
             type: "button",
-            className: "dsh-aggregate-restore-btn",
+            variant: "outline",
+            size: "sm",
             "data-dsh-aggregate-restore": bundleName,
             disabled,
             ...diffs.length === 0 && !working ? { title: labels.alreadyDefaultTitle } : {},
@@ -1432,39 +1379,35 @@ function createAggregateRestoreRuntime(ctx, bundleName, defaults) {
           },
           working ? labels.restoring : labels.restoreButton
         ),
-        (0, import_react.createElement)(
-          "dialog",
-          {
-            ref: dialogRef,
-            className: "dsh-aggregate-restore-dialog",
-            "data-dsh-aggregate-restore-dialog": bundleName,
-            "aria-labelledby": `${dialogId}-title`,
-            "aria-describedby": `${dialogId}-desc`
+        (0, import_react.createElement)(import_dsh_client_ui_primitives.Modal, {
+          open: confirmOpen,
+          onClose: () => {
+            setConfirmOpen(false);
           },
-          (0, import_react.createElement)("h4", { id: `${dialogId}-title` }, labels.confirmTitle),
-          (0, import_react.createElement)(
-            "p",
-            { id: `${dialogId}-desc` },
-            labels.confirmBody.replace("{count}", String(diffs.length))
-          ),
-          (0, import_react.createElement)(
-            "div",
-            { className: "dsh-aggregate-restore-dialog-actions" },
+          title: labels.confirmTitle,
+          tone: "warning",
+          closeLabel: labels.closeAction,
+          description: labels.confirmBody.replace("{count}", String(diffs.length)),
+          footer: (0, import_react.createElement)(
+            import_react.Fragment,
+            null,
             (0, import_react.createElement)(
-              "button",
+              import_dsh_client_ui_primitives.Button,
               {
-                ref: cancelRef,
                 type: "button",
-                className: "dsh-aggregate-restore-dialog-btn",
-                onClick: () => dialogRef.current?.close()
+                variant: "ghost",
+                "data-modal-autofocus": "",
+                onClick: () => {
+                  setConfirmOpen(false);
+                }
               },
               labels.cancelAction
             ),
             (0, import_react.createElement)(
-              "button",
+              import_dsh_client_ui_primitives.Button,
               {
                 type: "button",
-                className: "dsh-aggregate-restore-dialog-btn dsh-aggregate-restore-dialog-btn-primary",
+                variant: "primary",
                 disabled: working || !canRestore,
                 onClick: () => {
                   void handleConfirm();
@@ -1473,7 +1416,7 @@ function createAggregateRestoreRuntime(ctx, bundleName, defaults) {
               labels.confirmAction
             )
           )
-        )
+        })
       );
     }
   );

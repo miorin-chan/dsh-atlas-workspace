@@ -1,7 +1,7 @@
 # Any new workspace-facing feature belongs in this aggregate. Add its package,
 # then install its pinned version and run `npm run build` and `npm run check`.
 name: '@miorin/dsh-atlas-workspace'
-version: 0.1.0
+version: 0.2.0
 description: 'Workspace switching, file browsing, title badges, and default Agent presets.'
 engines:
   dsh: '>=0.2.2-rc.5'

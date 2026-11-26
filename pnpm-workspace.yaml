@@ -1,3 +1,8 @@
 # esbuild uses the platform binary from its optional dependencies.
 allowBuilds:
   "esbuild@0.28.2": false
+minimumReleaseAgeExclude:
+  - '@miorin/dsh-preview-file-navigation@0.1.1'
+  - '@miorin/dsh-workspace-default-preset@0.1.1'
+  - '@miorin/dsh-workspace-switcher@0.1.1'
+  - '@miorin/dsh-workspace-title-badge@0.1.1'

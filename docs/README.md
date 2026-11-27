@@ -1,5 +1,8 @@
 # @miorin/dsh-atlas-workspace 项目文档
 
+- [产品设计](../DESIGN.md)：主题定位、成员边界与成功标准。
+- [中文使用说明](../README.zh.md) · [English README](../README.md)
+
 ## 使用
 
 - 按 `Mod+K` [找会话](../../dsh-workspace-switcher/README.zh.md)，按 `Mod+Shift+K` 浏览工作区。

@@ -2,6 +2,6 @@
   "meta": {
     "title": "Modularer Plan zur Verbesserung der Arbeitsbereiche",
     "description": "Sitzungen suchen, Arbeitsbereiche wechseln und Dateien durchsuchen oder in der Vorschau öffnen. Labels neben den Sitzungstiteln zeigen den Arbeitsbereich an. Für jeden Arbeitsbereich lässt sich ein Standard-Agent-Preset festlegen.",
-    "detail": "README.de.md"
+    "detail": "docs/DETAIL.de.md"
   }
 }

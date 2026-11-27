@@ -2,6 +2,6 @@
   "meta": {
     "title": "Plan modular de mejora de los espacios de trabajo",
     "description": "Busca sesiones, cambia de espacio de trabajo y explora archivos con vista previa. Las etiquetas junto a los títulos de sesión indican el espacio de trabajo. Puedes elegir un preset de agente predeterminado para cada espacio.",
-    "detail": "README.es.md"
+    "detail": "docs/DETAIL.es.md"
   }
 }

@@ -2,6 +2,6 @@
   "meta": {
     "title": "Plan modulaire d’amélioration des espaces de travail",
     "description": "Recherchez des sessions, changez d’espace de travail et parcourez les fichiers avec aperçu. Les étiquettes à côté des titres de session indiquent l’espace de travail. Définissez un preset d’agent par défaut pour chaque espace.",
-    "detail": "README.fr.md"
+    "detail": "docs/DETAIL.fr.md"
   }
 }

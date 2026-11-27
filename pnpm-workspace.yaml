@@ -6,3 +6,4 @@ minimumReleaseAgeExclude:
   - '@miorin/dsh-workspace-default-preset@0.1.1'
   - '@miorin/dsh-workspace-switcher@0.1.1'
   - '@miorin/dsh-workspace-title-badge@0.1.1'
+  - '@miorin/dsh-aggregate@0.1.0'

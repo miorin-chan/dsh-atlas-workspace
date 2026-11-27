@@ -28,8 +28,8 @@ importers:
         specifier: 0.2.2-rc.5
         version: 0.2.2-rc.5(@deepseek-ai/cordis@4.1.0)
       '@miorin/dsh-aggregate':
-        specifier: link:../../packages/dsh-aggregate
-        version: link:../../packages/dsh-aggregate
+        specifier: 0.1.0
+        version: 0.1.0
       '@types/node':
         specifier: 22.20.5
         version: 22.20.5
@@ -218,6 +218,11 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@miorin/dsh-aggregate@0.1.0':
+    resolution: {integrity: sha512-NmLppV4XcK2+Au6yEg+uSzvKOTdc6rda9yDCSNhHH3pc5FYvI9WpE/KcEffvMZnXt26j04c35ku9ZdloaayP7w==}
+    engines: {node: ^22.18.0 || >=24.11.0}
+    hasBin: true
+
   '@miorin/dsh-preview-file-navigation@0.1.1':
     resolution: {integrity: sha512-/COTrDlppMcyZXeDJNNiz78UU/j/dle+yYvIYqcnOKhcva0PxtVXAFB3ROehz6c8Dra2GlAS26jgTixmjfwqpw==}
     engines: {dsh: '>=0.2.2-rc.5'}
@@ -343,6 +348,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.28.2':
     optional: true
+
+  '@miorin/dsh-aggregate@0.1.0': {}
 
   '@miorin/dsh-preview-file-navigation@0.1.1': {}
 
